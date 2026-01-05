@@ -4,6 +4,7 @@ import { mediaListAPI } from '../Hoc/api';
 import Footer from './Footer';
 import Header from './Headers';
 import useAuth from '../auth/useAuth';
+import Aos from 'aos';
 
 
 function Collaborate() {
@@ -115,7 +116,7 @@ function Collaborate() {
     collabMediaLoading: true
   });
   useEffect(() => {
-    AOS.init({ once: true });
+    Aos.init({ once: true });
   }, []);
 
 
