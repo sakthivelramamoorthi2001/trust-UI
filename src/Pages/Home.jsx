@@ -56,6 +56,9 @@ import Header from "./Headers";
 import Footer from "./Footer";
 
 function Home() {
+  const { mediaList } = useAuth();
+
+
   // Sticky header with transition effect
   React.useEffect(() => {
     function handleScroll() {  // header sticky
@@ -1695,34 +1698,38 @@ function Home() {
       <section className="gallery-section">
         <h2>Event Gallery</h2>
 
-        <div className="gallery-grid">
-          <div className="gallery-item">
-            <img src={gallery1} alt="Event 1" />
-          </div>
-          <div className="gallery-item">
-            <img src={gallery2} alt="Event 2" />
-          </div>
-          <div className="gallery-item">
-            <img src={gallery3} alt="Event 3" />
-          </div>
-          <div className="gallery-item">
-            <img src={gallery4} alt="Event 4" />
-          </div>
-          <div className="gallery-item">
-            <img src={gallery5} alt="Event 5" />
-          </div>
-          <div className="gallery-item">
-            <img src={gallery6} alt="Event 6" />
-          </div>
+        {mediaList.loading ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            {mediaList.data &&
+              mediaList.data.filter(i => i.PostType === "GALLERY").length > 0 ? (
 
-          {/* Hidden on small screens */}
-          <div className="gallery-item d-none d-sm-none d-md-none d-lg-block">
-            <img src={gallery7} alt="Event 7" />
-          </div>
-          <div className="gallery-item d-none d-sm-none d-md-none d-lg-block">
-            <img src={gallery8} alt="Event 8" />
-          </div>
-        </div>
+              <div className="gallery-grid">
+                {mediaList.data
+                  .filter(i => i.PostType === "GALLERY")
+                  .map((item, idx) => {
+                    const src =
+                      item.url ||
+                      (item.key
+                        ? process.env.REACT_APP_MEDIA_BASE_URL
+                          ? `${process.env.REACT_APP_MEDIA_BASE_URL.replace(/\/$/, "")}/${String(item.key).replace(/^\//, "")}`
+                          : item.key
+                        : "/src/assets/img/event-1.jpg");
+
+                    return (
+                      <div className="gallery-item" key={item.id || idx}>
+                        <img src={src} alt="" />
+                      </div>
+                    );
+                  })}
+              </div>
+
+            ) : (
+              <div className="col-12">No Gallery found.</div>
+            )}
+          </>
+        )}
 
         <div className="details-btn1">
           <a
@@ -1965,7 +1972,7 @@ function Home() {
         {/* <!-- <div className="shape"><img alt="shape" src={shape38} /></div> --> */}
       </section>
       <Footer />
-   </div>
+    </div>
   );
 }
 

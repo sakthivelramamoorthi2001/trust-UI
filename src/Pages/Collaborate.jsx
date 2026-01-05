@@ -3,200 +3,203 @@ import { Link } from "react-router-dom";
 import { mediaListAPI } from '../Hoc/api';
 import Footer from './Footer';
 import Header from './Headers';
+import useAuth from '../auth/useAuth';
 
 
 function Collaborate() {
 
-  React.useEffect(() => {
-    function handleScroll() {  // header sticky
-      let header = document.querySelector(".header-section");
-      if (!header) return;
-      let scrollY = window.scrollY;
-      let pageHeight = document.body.scrollHeight;
+  const { mediaList } = useAuth();
 
-      let triggerPoint = pageHeight * 0.09; // 12%
+  console.log(
+     mediaList.data.filter(i => i.PostType == "COLLAB") 
+  );
+  
 
-      if (scrollY > triggerPoint) {
-        header.classList.add("show-header");
-      } else {
-        header.classList.remove("show-header");
-      }
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  console.log(mediaList,'mediaList');
+  
+  // React.useEffect(() => {
+  //   function handleScroll() {  // header sticky
+  //     let header = document.querySelector(".header-section");
+  //     if (!header) return;
+  //     let scrollY = window.scrollY;
+  //     let pageHeight = document.body.scrollHeight;
 
-  React.useEffect(() => {
-    function updateNavVisibility() {
-      const navMenus = document.querySelectorAll('.main-menu-2, .header-section, .header-section-1');
-      if (window.innerWidth <= 991) {
-        navMenus.forEach(el => {
-          el.classList.remove('d-none', 'd-sm-none', 'd-md-none', 'd-lg-block', 'd-xl-block');
-          el.classList.add('d-block');
-        });
-      } else {
-        navMenus.forEach(el => {
-          el.classList.remove('d-block');
-          // Restore original classes if needed (optional)
-        });
-      }
-    }
+  //     let triggerPoint = pageHeight * 0.09; // 12%
 
-    function handleScrollNavStyle() {
-      const header = document.querySelector('.header-section');
-      const navMenu = document.querySelector('.main-menu-2');
-      if (!header || !navMenu) return;
-      if (window.scrollY > 20) {
-        header.style.background = '#fff';
-        header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.07)';
-        navMenu.querySelectorAll('a').forEach(a => {
-        });
-      } else {
-        header.style.background = '';
-        header.style.boxShadow = '';
-        navMenu.style.background = '';
-        navMenu.querySelectorAll('a').forEach(a => {
-          a.style.color = '';
-        });
-      }
-    }
+  //     if (scrollY > triggerPoint) {
+  //       header.classList.add("show-header");
+  //     } else {
+  //       header.classList.remove("show-header");
+  //     }
+  //   }
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
-    updateNavVisibility();
-    window.addEventListener('resize', updateNavVisibility);
-    window.addEventListener('scroll', handleScrollNavStyle);
+  // React.useEffect(() => {
+  //   function updateNavVisibility() {
+  //     const navMenus = document.querySelectorAll('.main-menu-2, .header-section, .header-section-1');
+  //     if (window.innerWidth <= 991) {
+  //       navMenus.forEach(el => {
+  //         el.classList.remove('d-none', 'd-sm-none', 'd-md-none', 'd-lg-block', 'd-xl-block');
+  //         el.classList.add('d-block');
+  //       });
+  //     } else {
+  //       navMenus.forEach(el => {
+  //         el.classList.remove('d-block');
+  //         // Restore original classes if needed (optional)
+  //       });
+  //     }
+  //   }
 
-    // Set initial nav style on mount
-    handleScrollNavStyle();
+  //   function handleScrollNavStyle() {
+  //     const header = document.querySelector('.header-section');
+  //     const navMenu = document.querySelector('.main-menu-2');
+  //     if (!header || !navMenu) return;
+  //     if (window.scrollY > 20) {
+  //       header.style.background = '#fff';
+  //       header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.07)';
+  //       navMenu.querySelectorAll('a').forEach(a => {
+  //       });
+  //     } else {
+  //       header.style.background = '';
+  //       header.style.boxShadow = '';
+  //       navMenu.style.background = '';
+  //       navMenu.querySelectorAll('a').forEach(a => {
+  //         a.style.color = '';
+  //       });
+  //     }
+  //   }
 
-    return () => {
-      window.removeEventListener('resize', updateNavVisibility);
-      window.removeEventListener('scroll', handleScrollNavStyle);
-    };
-  }, []);
+  //   updateNavVisibility();
+  //   window.addEventListener('resize', updateNavVisibility);
+  //   window.addEventListener('scroll', handleScrollNavStyle);
+
+  //   // Set initial nav style on mount
+  //   handleScrollNavStyle();
+
+  //   return () => {
+  //     window.removeEventListener('resize', updateNavVisibility);
+  //     window.removeEventListener('scroll', handleScrollNavStyle);
+  //   };
+  // }, []);
 
 
-  React.useEffect(() => {      // blog section slide
-    if (window.Swiper && document.querySelector('.blog-slider-active .swiper')) {
-      new window.Swiper('.blog-slider-active .swiper', {
-        slidesPerView: 2,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: '.blog-pagination',
-          clickable: true,
-        },
-        // autoplay: {
-        //   delay: 4000,
-        //   disableOnInteraction: false,
-        // },
-        breakpoints: {
-          1200: { slidesPerView: 2, spaceBetween: 30 },
-          992: { slidesPerView: 2, spaceBetween: 20 },
-          576: { slidesPerView: 1, spaceBetween: 10 },
-          0: { slidesPerView: 1, spaceBetween: 10 },
-        },
-      });
-    }
-  }, []);
+  // React.useEffect(() => {      // blog section slide
+  //   if (window.Swiper && document.querySelector('.blog-slider-active .swiper')) {
+  //     new window.Swiper('.blog-slider-active .swiper', {
+  //       slidesPerView: 2,
+  //       spaceBetween: 30,
+  //       loop: true,
+  //       pagination: {
+  //         el: '.blog-pagination',
+  //         clickable: true,
+  //       },
+  //       // autoplay: {
+  //       //   delay: 4000,
+  //       //   disableOnInteraction: false,
+  //       // },
+  //       breakpoints: {
+  //         1200: { slidesPerView: 2, spaceBetween: 30 },
+  //         992: { slidesPerView: 2, spaceBetween: 20 },
+  //         576: { slidesPerView: 1, spaceBetween: 10 },
+  //         0: { slidesPerView: 1, spaceBetween: 10 },
+  //       },
+  //     });
+  //   }
+  // }, []);
 
   // fetch collaborate media items (postType=COLLAB)
   const [collabItems, setCollabItems] = useState([]);
-  React.useEffect(() => {
-    let mounted = true;
-    const load = async () => {
-      try {
-        const res = await mediaListAPI({ postType: 'COLLAB' });
-        const items = res.data || [];
-        if (mounted) setCollabItems(items);
-      } catch (err) {
-        console.error('Failed to load collab items', err);
-      }
-    };
-    load();
-    return () => { mounted = false; };
+  const [loading, setLoading] = useState({
+    collabMediaLoading: true
+  });
+  useEffect(() => {
+    AOS.init({ once: true });
   }, []);
 
-  React.useEffect(() => {   //blog section social
 
-    const shareButtons = document.querySelectorAll('.total-shared');
-    const handleShareClick = function (e) {
-      e.preventDefault();
-      const parent = this.parentElement;
-      if (parent) {
-        parent.classList.toggle('active');
-      }
-    };
-    shareButtons.forEach(btn => btn.addEventListener('click', handleShareClick));
+  // React.useEffect(() => {   //blog section social
 
-    const blogCards = document.querySelectorAll('.blog-card');
-    const handleMouseLeave = function () {
-      const shared = this.querySelector('.social-share');
-      if (shared) {
-        shared.classList.remove('active');
-      }
-    };
-    blogCards.forEach(card => card.addEventListener('mouseleave', handleMouseLeave));
+  //   const shareButtons = document.querySelectorAll('.total-shared');
+  //   const handleShareClick = function (e) {
+  //     e.preventDefault();
+  //     const parent = this.parentElement;
+  //     if (parent) {
+  //       parent.classList.toggle('active');
+  //     }
+  //   };
+  //   shareButtons.forEach(btn => btn.addEventListener('click', handleShareClick));
 
-    // Cleanup
-    return () => {
-      shareButtons.forEach(btn => btn.removeEventListener('click', handleShareClick));
-      blogCards.forEach(card => card.removeEventListener('mouseleave', handleMouseLeave));
-    };
-  }, []);
+  //   const blogCards = document.querySelectorAll('.blog-card');
+  //   const handleMouseLeave = function () {
+  //     const shared = this.querySelector('.social-share');
+  //     if (shared) {
+  //       shared.classList.remove('active');
+  //     }
+  //   };
+  //   blogCards.forEach(card => card.addEventListener('mouseleave', handleMouseLeave));
 
-  React.useEffect(() => {        //whatsapp
-    function handleWhatsAppScroll() {
-      const whatsappBtn = document.querySelector('.whatsapp-float');
-      if (!whatsappBtn) return;
-      if (window.scrollY > 200) {
-        whatsappBtn.classList.add('show');
-      } else {
-        whatsappBtn.classList.remove('show');
-      }
-    }
-    window.addEventListener('scroll', handleWhatsAppScroll);
-    return () => window.removeEventListener('scroll', handleWhatsAppScroll);
-  }, []);
+  //   // Cleanup
+  //   return () => {
+  //     shareButtons.forEach(btn => btn.removeEventListener('click', handleShareClick));
+  //     blogCards.forEach(card => card.removeEventListener('mouseleave', handleMouseLeave));
+  //   };
+  // }, []);
 
-  React.useEffect(() => {            // back to top
-    const btn = document.getElementById('backToTop');
-    if (!btn) return;
-    const circle = btn.querySelector('circle');
-    if (!circle) return;
-    const radius = circle.r.baseVal.value;
-    const circumference = 2 * Math.PI * radius;
-    circle.style.strokeDasharray = circumference;
-    circle.style.strokeDashoffset = circumference;
+  // React.useEffect(() => {        //whatsapp
+  //   function handleWhatsAppScroll() {
+  //     const whatsappBtn = document.querySelector('.whatsapp-float');
+  //     if (!whatsappBtn) return;
+  //     if (window.scrollY > 200) {
+  //       whatsappBtn.classList.add('show');
+  //     } else {
+  //       whatsappBtn.classList.remove('show');
+  //     }
+  //   }
+  //   window.addEventListener('scroll', handleWhatsAppScroll);
+  //   return () => window.removeEventListener('scroll', handleWhatsAppScroll);
+  // }, []);
 
-    function setProgress() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const percent = docHeight ? scrollTop / docHeight : 0;
-      circle.style.strokeDashoffset = circumference * (1 - percent);
-      if (scrollTop > 200) {
-        btn.style.opacity = 1;
-        btn.style.pointerEvents = 'auto';
-      } else {
-        btn.style.opacity = 0;
-        btn.style.pointerEvents = 'none';
-      }
-    }
+  // React.useEffect(() => {            // back to top
+  //   const btn = document.getElementById('backToTop');
+  //   if (!btn) return;
+  //   const circle = btn.querySelector('circle');
+  //   if (!circle) return;
+  //   const radius = circle.r.baseVal.value;
+  //   const circumference = 2 * Math.PI * radius;
+  //   circle.style.strokeDasharray = circumference;
+  //   circle.style.strokeDashoffset = circumference;
 
-    window.addEventListener('scroll', setProgress);
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  //   function setProgress() {
+  //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  //     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  //     const percent = docHeight ? scrollTop / docHeight : 0;
+  //     circle.style.strokeDashoffset = circumference * (1 - percent);
+  //     if (scrollTop > 200) {
+  //       btn.style.opacity = 1;
+  //       btn.style.pointerEvents = 'auto';
+  //     } else {
+  //       btn.style.opacity = 0;
+  //       btn.style.pointerEvents = 'none';
+  //     }
+  //   }
 
-    // Set initial state
-    setProgress();
+  //   window.addEventListener('scroll', setProgress);
+  //   btn.addEventListener('click', function () {
+  //     window.scrollTo({ top: 0, behavior: 'smooth' });
+  //   });
 
-    return () => {
-      window.removeEventListener('scroll', setProgress);
-      btn.removeEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    };
-  }, []);
+  //   // Set initial state
+  //   setProgress();
+
+  //   return () => {
+  //     window.removeEventListener('scroll', setProgress);
+  //     btn.removeEventListener('click', function () {
+  //       window.scrollTo({ top: 0, behavior: 'smooth' });
+  //     });
+  //   };
+  // }, []);
 
 
 
@@ -252,36 +255,63 @@ function Collaborate() {
           </div>
         </div>
         <div className="container">
-          <div className="row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-            {collabItems && collabItems.length > 0 ? (
-              collabItems.map((item, idx) => (
-                <div className="col-xl-4 m-b-30" key={item.id || idx}>
-                  <div className="project-card style-service">
-                    <div className="thumb">
-                      <a href={item.link || '/econest/services-details'}>
-                        <img alt={item.title || item.filename || 'thumb'} src={item.url || (item.key ? (process.env.REACT_APP_MEDIA_BASE_URL ? `${process.env.REACT_APP_MEDIA_BASE_URL.replace(/\/$/, '')}/${String(item.key).replace(/^\//, '')}` : item.key) : '/src/assets/img/thumbs/thumb-68.webp')} />
-                      </a>
-                      <div className="content">
-                        <h5>{item.title || item.filename || 'Untitled'}</h5>
-                        <p>{item.description || item.caption || item.alt || ''}</p>
-                        <div className="details-btn">
-                          <a className='e-primary-btn has-icon is-hover-white' href={item.link || '/econest/services-details'}>
-                            KNOW MORE
-                            <span className="icon-wrap">
-                              <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
-                            </span>
-                          </a>
+          {mediaList.loading ? (
+            <div>Loading...</div>
+          ) : (
+            <div
+              className="row"
+            >
+              {mediaList.data && mediaList.data.filter(i => i.PostType == "COLLAB").length > 0 ? (
+                mediaList.data.filter(i => i.PostType == "COLLAB").map((item, idx) => (
+                  <div className="col-xl-4 m-b-30" key={item.id || idx}>
+                    <div className="project-card style-service">
+                      <div className="thumb">
+                        <a href={item.link || "/econest/services-details"}>
+                          <img
+                            alt={item.title || item.filename || "thumb"}
+                            src={
+                              item.url ||
+                              (item.key
+                                ? process.env.REACT_APP_MEDIA_BASE_URL
+                                  ? `${process.env.REACT_APP_MEDIA_BASE_URL.replace(/\/$/, "")}/${String(item.key).replace(/^\//, "")}`
+                                  : item.key
+                                : "/src/assets/img/thumbs/thumb-68.webp")
+                            }
+                          />
+                        </a>
+
+                        {/* this one is hide other will run */}
+
+                        <div className="content">
+                          <h5>{item.title || item.filename || "Untitled"}</h5>
+                          <p>{item.description || item.caption || item.alt || ""}</p>
+                          <div className="details-btn">
+                            <a
+                              className="e-primary-btn has-icon is-hover-white"
+                              href={`preview/${item.id}`}
+                            >
+                              KNOW MORE
+                              <span className="icon-wrap">
+                                <span className="icon">
+                                  <i className="fas fa-arrow-right"></i>
+                                  <i className="fas fa-arrow-right"></i>
+                                </span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
+
                       </div>
                     </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <div className="col-12">No items found for Collaborate.</div>
-            )}
-          </div>
+                ))
+              ) : (
+                <div className="col-12">No items found for Collaborate.</div>
+              )}
+            </div>
+          )}
         </div>
+
       </section>
 
 

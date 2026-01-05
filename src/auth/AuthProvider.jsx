@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { loginAPI } from "../Hoc/api";
+import { loginAPI, mediaListAPI } from "../Hoc/api";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -42,6 +42,13 @@ export default function AuthProvider({ children }) {
     ;
   };
 
+
+  const [mediaList, setMediaList] = useState({
+    loading: true,
+    data: [],
+    err: false
+  });
+
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -49,8 +56,20 @@ export default function AuthProvider({ children }) {
     localStorage.removeItem("auth");
   };
 
+  useEffect(async () => {
+    try {
+
+      const data = await mediaListAPI();
+      setMediaList(prev => ({ ...prev, loading: false, data:data?.data || [] }))
+    } catch (error) {
+      setMediaList(prev => ({ ...prev, loading: false, data: [], err: error }))
+    } finally {
+      setMediaList(prev => ({ ...prev, loading: false }))
+    }
+  }, [])
+
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login, logout, mediaList }}>
 
       {
         loading ? <div>Loading...</div> : children

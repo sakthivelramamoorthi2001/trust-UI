@@ -1,17 +1,24 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../assets/css/profile.css'
 import useAuth from '../auth/useAuth';
 import { uploadMediaAPI, mediaListAPI, deleteMediaAPI } from '../Hoc/api';
 
 const Profile = () => {
   const [postType, setPostType] = useState('GALLERY');
   const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState({
+    fullPage: true,
+    mediaContent: false,
+    upload: false,
+  });
   const [message, setMessage] = useState('');
+  const [formState, setFormState] = useState({});
   const [mediaList, setMediaList] = useState([]);
   const fileInputRef = useRef(null);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewItem, setPreviewItem] = useState(null);
+  const [content, setContent] = useState({});
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -22,6 +29,11 @@ const Profile = () => {
     navigate('/');
   };
 
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setContent((prevContent) => ({ ...prevContent, [name]: value }));
+  }
 
 
   const getExtension = (item) => {
@@ -35,12 +47,12 @@ const Profile = () => {
 
   const fileCategory = (item) => {
     const ext = getExtension(item);
-    const imageExt = ['png','jpg','jpeg','webp','gif','svg'];
-    const videoExt = ['mp4','webm','ogg'];
+    const imageExt = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'];
+    const videoExt = ['mp4', 'webm', 'ogg'];
     if (imageExt.includes(ext)) return 'image';
     if (videoExt.includes(ext)) return 'video';
     if (ext === 'pdf') return 'pdf';
-    if (['doc','docx','ppt','pptx','xls','xlsx'].includes(ext)) return 'office';
+    if (['doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx'].includes(ext)) return 'office';
     return 'other';
   };
 
@@ -59,16 +71,17 @@ const Profile = () => {
   }, [postType]);
 
   const fetchList = async (type) => {
-    setLoading(true);
+    setLoading(prev => ({ ...prev, mediaContent: true }))
     setMessage('');
     try {
       const data = await mediaListAPI({ postType: type });
       // assuming API returns array under data.items or directly data
       setMediaList(data.data || data || []);
+
     } catch (err) {
       setMessage(err?.message || JSON.stringify(err));
     } finally {
-      setLoading(false);
+      setLoading(prev => ({ ...prev, mediaContent: false, fullPage: false }))
     }
   };
 
@@ -81,12 +94,13 @@ const Profile = () => {
       setMessage('Please select a file to upload.');
       return;
     }
-    setLoading(true);
+    setLoading(prev => ({ ...prev, upload: true }))
     setMessage('');
     try {
       const formData = new FormData();
       formData.append('postType', postType);
       formData.append('file', file);
+      formData.append("content", JSON.stringify(content))
 
       const res = await uploadMediaAPI(formData);
       setMessage(res?.message || 'Upload successful');
@@ -98,9 +112,18 @@ const Profile = () => {
     } catch (err) {
       setMessage(err?.message || JSON.stringify(err));
     } finally {
-      setLoading(false);
+      setContent({title:""})
+      setLoading(prev => ({ ...prev, upload: false }))
     }
   };
+
+
+  if (loading.fullPage) {
+    return <>
+      <p>Loading...</p>
+    </>
+  }
+
 
   return (
     <div className="profile-page container">
@@ -128,20 +151,27 @@ const Profile = () => {
           <input ref={fileInputRef} type="file" onChange={handleFileChange} />
         </div>
 
+        <div>
+          <input type="text" name='title' placeholder='Title' value={content.title} onChange={handleInputChange} />
+        </div>
+
         <div style={{ marginTop: 12 }}>
-          <button onClick={handleUpload} disabled={loading} className="e-primary-btn has-icon">
-            {loading ? 'Uploading…' : 'Upload'}
+          <button onClick={handleUpload} disabled={loading.upload} className="e-primary-btn has-icon">
+            {loading.upload ? 'Uploading…' : 'Upload'}
           </button>
         </div>
+
+
 
         {message && <div style={{ marginTop: 12 }} className="alert-message">{message}</div>}
       </div>
 
+
       <hr style={{ margin: '24px 0' }} />
 
       <h3>List: {postType}</h3>
-      {loading && <div>Loading...</div>}
-      <div className="media-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
+
+      {loading.mediaContent ? <div>Loading...</div> : <div className="media-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
         {mediaList && mediaList.length > 0 ? (
           mediaList.map((m, idx) => (
             <div key={m.id || idx} className="media-item" style={{ border: '1px solid #eee', padding: 8, position: 'relative' }}>
@@ -151,7 +181,8 @@ const Profile = () => {
                   const name = m.title || m.filename || m.id || 'this item';
                   const ok = window.confirm(`Delete ${name}?`);
                   if (!ok) return;
-                  setLoading(true);
+
+                  setLoading(prev => ({ ...prev, mediaContent: true }));
                   setMessage('');
                   try {
                     const params = m.id ? { id: m.id } : m.key ? { key: m.key } : { filename: m.filename };
@@ -161,7 +192,7 @@ const Profile = () => {
                   } catch (err) {
                     setMessage(err?.message || JSON.stringify(err));
                   } finally {
-                    setLoading(false);
+                    setLoading(prev => ({ ...prev, mediaContent: false }));
                   }
                 }}
                 title="Delete"
@@ -199,7 +230,7 @@ const Profile = () => {
         ) : (
           <div>No items found for {postType}</div>
         )}
-      </div>
+      </div>}
       {previewOpen && previewItem && (
         <div
           className="preview-modal"
@@ -231,7 +262,7 @@ const Profile = () => {
           >
             <button onClick={closePreview} style={{ position: 'absolute', right: 8, top: 8, border: 'none', background: 'transparent', fontSize: 20, cursor: 'pointer' }} title="Close">×</button>
             {(() => {
-              const url = previewItem.url 
+              const url = previewItem.url
               const cat = fileCategory(previewItem);
               if (cat === 'image') {
                 return <img src={url} alt={previewItem.filename || ''} style={{ maxWidth: '100%', maxHeight: '80vh' }} />;

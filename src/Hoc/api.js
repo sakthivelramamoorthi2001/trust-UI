@@ -1,7 +1,7 @@
 
 import axios from "axios"
 
-const babaseulseurl = "http://localhost:8081/api/";
+const babaseulseurl = "https://trust-ui-backend.vercel.app/api/";
 axios.defaults.baseURL = babaseulseurl;
 
 if (localStorage.getItem('token')) {
@@ -110,6 +110,15 @@ export const uploadMediaAPI = async (formData) => {
     }
 }
 
+export const particularMedia = async (id) => {
+    try {
+        const res  = await axios.get(`media/${id}`);
+        return res;
+    } catch (error) {
+        throw error.response?.data || error;
+    }
+}
+
 export const mediaListAPI = async (params) => {
     try {
         const response = await axios.get("media/list", { params });
@@ -122,7 +131,7 @@ export const mediaListAPI = async (params) => {
 export const deleteMediaAPI = async (params) => {
     try {
         // expects params like { id } or { key }
-        const response = await axios.delete("media/delete", { params });
+        const response = await axios.delete(`media/delete/${params.id}`, );
         return response.data;
     } catch (error) {
         throw error.response?.data || error;

@@ -4,30 +4,33 @@ import AuthProvider from "./auth/AuthProvider";
 import RequireAuth from "./routes/RequireRole";
 import PublicRoute from "./routes/PublicRoute";
 
-import Login from "./Pages/Login";
-import NotFound from "./Pages/NotFound";
-import Home from "./Pages/Home";
-import Aboutus from "./Pages/Aboutus";
-import VolunteerDetails from "./Pages/VolunteerDetails";
-import Collaborate from "./Pages/Collaborate";
-import MediaTalks from "./Pages/MediaTalks";
-import Gallery from "./Pages/Gallery";
-import Blog from "./Pages/Blog";
-import BlogDetails from "./Pages/BlogDetails";
-import ContactUs from "./Pages/ContactUs";
-import Donate from "./Pages/Donate";
-import Unauthorised from "./Pages/Unauthorised";
-import Dashboard from "./Pages/Dashboard";
-import Profile from "./Pages/Profile";
-import Customer from "./Pages/Customer";
-import Admin from "./Pages/Admin";
-import LoginPage from "./Pages/LoginPage";
-import AdminMain from "./Pages/AdminMain";
-import CollaborateAdmin from "./Pages/CollaborateAdmin";
-import GalleryAdmin from "./Pages/GalleryAdmin";
-import BlogAdmin from "./Pages/BlogAdmin";
-import { ADMIN_ROLE, USER_ROLE } from "./Hoc/constData";
-import Test from "./Pages/Test";
+import React, { lazy, Suspense } from "react";
+
+const Login = lazy(() => import("./Pages/Login"));
+const NotFound = lazy(() => import("./Pages/NotFound"));
+const Home = lazy(() => import("./Pages/Home"));
+const Aboutus = lazy(() => import("./Pages/Aboutus"));
+const VolunteerDetails = lazy(() => import("./Pages/VolunteerDetails"));
+const Collaborate = lazy(() => import("./Pages/Collaborate"));
+const MediaTalks = lazy(() => import("./Pages/MediaTalks"));
+const Gallery = lazy(() => import("./Pages/Gallery"));
+const Blog = lazy(() => import("./Pages/Blog"));
+const BlogDetails = lazy(() => import("./Pages/BlogDetails"));
+const ContactUs = lazy(() => import("./Pages/ContactUs"));
+const Donate = lazy(() => import("./Pages/Donate"));
+const Unauthorised = lazy(() => import("./Pages/Unauthorised"));
+const Dashboard = lazy(() => import("./Pages/Dashboard"));
+const Profile = lazy(() => import("./Pages/Profile"));
+const Customer = lazy(() => import("./Pages/Customer"));
+const Admin = lazy(() => import("./Pages/Admin"));
+const LoginPage = lazy(() => import("./Pages/LoginPage"));
+const AdminMain = lazy(() => import("./Pages/AdminMain"));
+const CollaborateAdmin = lazy(() => import("./Pages/CollaborateAdmin"));
+const GalleryAdmin = lazy(() => import("./Pages/GalleryAdmin"));
+const BlogAdmin = lazy(() => import("./Pages/BlogAdmin"));
+const Test = lazy(() => import("./Pages/Test"));
+const Preview = lazy(() => import("./Pages/Preview"));
+
 // import Aboutus from "./Pages/Aboutus";
 
 export default function App() {
@@ -122,6 +125,15 @@ export default function App() {
             element={
               <PublicRoute>
                 <Donate />
+              </PublicRoute>
+            }
+          />
+
+           <Route
+            path="preview/:id"
+            element={
+              <PublicRoute>
+                <Preview />
               </PublicRoute>
             }
           />
