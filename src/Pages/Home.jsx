@@ -1027,7 +1027,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame106} alt="thumb-14" />
                     </div>
@@ -1038,7 +1038,7 @@ function Home() {
                       Access global experts, cutting-edge facilities, and collaborative networks to accelerate your research.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1052,7 +1052,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame107} alt="thumb-15" />
                     </div>
@@ -1063,7 +1063,7 @@ function Home() {
                       Partner with us to foster cross-disciplinary projects and expand your research impact globally.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1077,7 +1077,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame108} alt="thumb-16" />
                     </div>
@@ -1088,7 +1088,7 @@ function Home() {
                       Transform your ideas into reality with mentorship, resources, and connections to research partners.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1168,7 +1168,7 @@ function Home() {
 
 
                     <div className="details-btn1 m-t-xs-15 m-t-sm-15">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/aboutus'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -1193,7 +1193,7 @@ function Home() {
 
                     </div>
                     <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -1212,7 +1212,7 @@ function Home() {
                         Perumal’s father, Mr. Annamalai Chettiar (fondly called "Kannu"), was born as the fifth child in his family. He lived a full and purposeful life for 83 years, passing away on June 2, 2023. A man of exceptional ingenuity, he introduced practical solutions to uplift the local villages. From setting up flour mills, rice grinding machines, and battery-powered lighting systems for students, to supporting educational and farming innovations, he was endearingly known by his peers as the “Village Scientist.” His work inspired a generation of rural progress and educational focus.</p>
                     </div>
                     <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -1357,17 +1357,17 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb14} alt="thumb-14" />
                         <div className="overlay"></div>
                       </div>
                     </a>
                     <div className="content">
-                      <h5>Education & Scholarship Program</h5>
+                      {/* <h5>Education & Scholarship Program</h5> */}
                       <p>We provide educational support and scholarships for underprivileged students to pursue higher studies...</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>
@@ -1381,7 +1381,7 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb15} alt="thumb-15" />
                         <div className="overlay"></div>
@@ -1391,7 +1391,7 @@ function Home() {
                       <h5>Research & Innovation <br />Program</h5>
                       <p>We identify and support innovators working in emerging fields like AI, IoT, Robotics, and Clean Energy.</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>
@@ -1405,7 +1405,7 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb16} alt="thumb-16" />
                         <div className="overlay"></div>
@@ -1415,7 +1415,7 @@ function Home() {
                       <h5>International Collaboration Program</h5>
                       <p>We believe knowledge should travel across borders. Our collaboration initiatives bring Indian students...</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>
@@ -1429,7 +1429,7 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb15} alt="thumb-17" />
                         <div className="overlay"></div>
@@ -1452,7 +1452,7 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb15} alt="thumb-17" />
                         <div className="overlay"></div>
@@ -1462,7 +1462,7 @@ function Home() {
                       <h5>Community Development Program</h5>
                       <p>We work to uplift communities through social, cultural, and environmental initiatives.</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>
@@ -1475,7 +1475,7 @@ function Home() {
               <div className="swiper-slide">
                 <div className="project-card text-center">
                   <div className="thumb">
-                    <a href="/econest/services-details">
+                    <a href="/">
                       <div className="image-container">
                         <img src={thumb15} alt="thumb-17" />
                         <div className="overlay"></div>
@@ -1485,7 +1485,7 @@ function Home() {
                       <h5>Community Development Program</h5>
                       <p>We work to uplift communities through social, cultural, and environmental initiatives.</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>
@@ -1572,7 +1572,7 @@ function Home() {
         </div>
 
         <div className="details-btn1">
-          <a className="e-primary-btn has-icon is-hover-white" href="#">
+          <a className="e-primary-btn has-icon is-hover-white" href="/aboutus">
             KNOW MORE
             <span className="icon-wrap">
               <span className="icon">
@@ -1613,7 +1613,7 @@ function Home() {
               <div className="details-btn">
                 <a
                   className="e-primary-btn has-icon is-hover-white"
-                  href="/econest/services-details"
+                  href="/mediatalks"
                 >
                   KNOW MORE
                   <span className="icon-wrap">
@@ -1646,7 +1646,7 @@ function Home() {
               <div className="details-btn">
                 <a
                   className="e-primary-btn has-icon is-hover-white"
-                  href="/econest/services-details"
+                  href="/mediatalks"
                 >
                   KNOW MORE
                   <span className="icon-wrap">
@@ -1679,7 +1679,7 @@ function Home() {
               <div className="details-btn">
                 <a
                   className="e-primary-btn has-icon is-hover-white"
-                  href="/econest/services-details"
+                  href="/mediatalks"
                 >
                   KNOW MORE
                   <span className="icon-wrap">
@@ -1734,7 +1734,7 @@ function Home() {
         <div className="details-btn1">
           <a
             className="e-primary-btn has-icon is-hover-white"
-            href="/econest/services-details"
+            href="/gallery"
           >
             KNOW MORE
             <span className="icon-wrap">
@@ -1769,7 +1769,7 @@ function Home() {
                   <p>Join a thriving community of researchers, innovators, and experts committed to advancing knowledge.</p>
                 </div>
                 <div className="details-btn1">
-                  <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                  <a className='e-primary-btn has-icon is-hover-white' href='/blog'>
                     EXPLORE ALL POST
                     <span className="icon-wrap">
                       <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1785,9 +1785,9 @@ function Home() {
                     <div className="swiper-slide">
                       <div className="blog-card">
                         <div className="thumb">
-                          <a href='/econest/blog-details'><img alt="thumb-5" src={event1} /></a>
+                          <a href='/blog'><img alt="thumb-5" src={event1} /></a>
                           {/* <!-- <div className="category">
-                            <a href='/econest/blog-details'>Forest</a>
+                            <a href='/blog'>Forest</a>
                           </div> --> */}
                           <div className="event-date">
                             <h2>09</h2>
@@ -1797,14 +1797,14 @@ function Home() {
                         <div className="content">
                           <div className="content-top p-0">
                             <div className="title">
-                              <h3><a href='/econest/blog-details'>INNOVATE 25 – AI FEST 2025</a></h3>
+                              <h3><a href='/blog'>INNOVATE 25 – AI FEST 2025</a></h3>
                             </div>
                             <div className="text">
                               <p>Tirupattur’s Biggest Technology Expo. Platinum Jubilee Special Edition Sacred Heart College. </p>
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
                               MORE
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
@@ -1824,9 +1824,9 @@ function Home() {
                     <div className="swiper-slide">
                       <div className="blog-card">
                         <div className="thumb">
-                          <a href='/econest/blog-details'><img alt="thumb-6" src={event2} /></a>
+                          <a href='/blog'><img alt="thumb-6" src={event2} /></a>
                           {/* <!-- <div className="category">
-                            <a href='/econest/blog-details'>Recycle</a>
+                            <a href='/blog'>Recycle</a>
                           </div> --> */}
                           <div className="event-date">
                             <h2>24</h2>
@@ -1836,14 +1836,14 @@ function Home() {
                         <div className="content">
                           <div className="content-top p-0">
                             <div className="title">
-                              <h3><a href='/econest/blog-details'>Expert Network</a></h3>
+                              <h3><a href='/blog'>Expert Network</a></h3>
                             </div>
                             <div className="text">
                               <p>Connect directly with Subject Matter Experts who can guide, mentor, and collaborate on your projects.y</p>
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
                               MORE
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
@@ -1863,9 +1863,9 @@ function Home() {
                     <div className="swiper-slide">
                       <div className="blog-card">
                         <div className="thumb">
-                          <a href='/econest/blog-details'><img alt="thumb-5" src={event1} /></a>
+                          <a href='/blog'><img alt="thumb-5" src={event1} /></a>
                           {/* <!-- <div className="category">
-                            <a href='/econest/blog-details'>Forest</a>
+                            <a href='/blog'>Forest</a>
                           </div> --> */}
                           <div className="event-date">
                             <h2>09</h2>
@@ -1875,14 +1875,14 @@ function Home() {
                         <div className="content">
                           <div className="content-top p-0">
                             <div className="title">
-                              <h3><a href='/econest/blog-details'>Research Resources</a></h3>
+                              <h3><a href='/blog'>Research Resources</a></h3>
                             </div>
                             <div className="text">
                               <p>Access cutting-edge research facilities, databases, and tools through our partner institutions.</p>
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
                               MORE
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
@@ -1902,9 +1902,9 @@ function Home() {
                     <div className="swiper-slide">
                       <div className="blog-card">
                         <div className="thumb">
-                          <a href='/econest/blog-details'><img alt="thumb-6" src={event2} /></a>
+                          <a href='/blog'><img alt="thumb-6" src={event2} /></a>
                           {/* <!-- <div className="category">
-                            <a href='/econest/blog-details'>Recycle</a>
+                            <a href='/blog'>Recycle</a>
                           </div> --> */}
                           <div className="event-date">
                             <h2>24</h2>
@@ -1914,14 +1914,14 @@ function Home() {
                         <div className="content">
                           <div className="content-top p-0">
                             <div className="title">
-                              <h3><a href='/econest/blog-details'>Collaborative Environment</a></h3>
+                              <h3><a href='/blog'>Collaborative Environment</a></h3>
                             </div>
                             <div className="text">
                               <p>Work alongside international scholars in a supportive ecosystem designed for innovation.</p>
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
                               MORE
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">

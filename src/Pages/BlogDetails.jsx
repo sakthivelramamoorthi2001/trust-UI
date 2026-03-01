@@ -365,7 +365,7 @@ function BlogDetails() {
             <li><Link to="/collaborate">COLLABORATE</Link></li>
             <li ><Link to="/mediatalks">MEDIA TALKS</Link>
                 {/* <!-- <ul className="sub-menu">
-                <li><a href='/econest/services-details'>Services Details</a></li>
+                <li><a href='/'>Services Details</a></li>
                 <li><a href='/econest/project'>Projects</a></li>
                 <li><a href='/econest/project-details'>Project Details</a></li>
                 <li><a href='/econest/camping'>Camping</a></li>
@@ -586,7 +586,7 @@ function BlogDetails() {
                                     </div>
                                     <div className="comment-form__btn-box">
                         <div className="details-btn">
-                            <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                            <a className='e-primary-btn has-icon is-hover-white' href='/'>
                                 KNOW MORE
                                 <span className="icon-wrap">
                                     <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>

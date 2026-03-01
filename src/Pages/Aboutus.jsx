@@ -408,7 +408,7 @@ function Aboutus() {
 
 
                     <div className="details-btn1 m-t-xs-15 m-t-sm-15">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -433,7 +433,7 @@ function Aboutus() {
 
                     </div>
                     <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -452,7 +452,7 @@ function Aboutus() {
                         Perumal’s father, Mr. Annamalai Chettiar (fondly called "Kannu"), was born as the fifth child in his family. He lived a full and purposeful life for 83 years, passing away on June 2, 2023. A man of exceptional ingenuity, he introduced practical solutions to uplift the local villages. From setting up flour mills, rice grinding machines, and battery-powered lighting systems for students, to supporting educational and farming innovations, he was endearingly known by his peers as the “Village Scientist.” His work inspired a generation of rural progress and educational focus.</p>
                     </div>
                     <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i
@@ -649,7 +649,7 @@ function Aboutus() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame106} alt="thumb-14" />
                     </div>
@@ -660,7 +660,7 @@ function Aboutus() {
                       Access global experts, cutting-edge facilities, and collaborative networks to accelerate your research.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -674,7 +674,7 @@ function Aboutus() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame107} alt="thumb-15" />
                     </div>
@@ -685,7 +685,7 @@ function Aboutus() {
                       Partner with us to foster cross-disciplinary projects and expand your research impact globally.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -699,7 +699,7 @@ function Aboutus() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/econest/services-details'>
+                  <a href='/'>
                     <div className="image-container">
                       <img src={frame108} alt="thumb-16" />
                     </div>
@@ -710,7 +710,7 @@ function Aboutus() {
                       Transform your ideas into reality with mentorship, resources, and connections to research partners.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -876,7 +876,7 @@ function Aboutus() {
                   <p>Join a thriving community of researchers, innovators, and experts committed to advancing knowledge.</p>
                 </div>
                 <div className="details-btn1">
-                  <a className='e-primary-btn has-icon is-hover-white' href='/econest/services-details'>
+                  <a className='e-primary-btn has-icon is-hover-white' href='/'>
                     EXPLORE ALL POST
                     <span className="icon-wrap">
                       <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>

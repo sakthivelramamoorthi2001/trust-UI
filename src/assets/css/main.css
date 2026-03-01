@@ -731,6 +731,33 @@ label {
   transition: all 0.3s linear 0s;
 }
 
+.formState {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.formState > div {
+  margin: 0 10px 10px 0;
+}
+.upload-form {
+  flex-wrap: wrap;
+}
+
+.e-primary-btn:hover:before {
+  left: 0;
+}
+
+.e-primary-btn.has-icon {
+  background-color: rgb(255, 255, 255);
+  color: rgb(34, 40, 52);
+  border-width: 1px;
+  border-style: solid;
+}
+
 .e-primary-btn.has-icon {
   background-color: rgb(255, 255, 255);
   color: rgb(34, 40, 52);
@@ -6755,7 +6782,7 @@ padding-left: 40px !important;
 }
 
 .thumb-wrap {
-  padding: 100px;
+      padding: 36px 100px 0px 100px;
 }
 
 .thumb-wrap img {

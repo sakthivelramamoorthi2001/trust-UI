@@ -209,7 +209,7 @@ const Header = () => {
                             <li><Link to="/collaborate">COLLABORATE</Link></li>
                             <li ><Link to="/mediatalks">MEDIA TALKS</Link>
                                 {/* <!-- <ul className="sub-menu">
-                            <li><a href='/econest/services-details'>Services Details</a></li>
+                            <li><a href='/'>Services Details</a></li>
                             <li><a href='/econest/project'>Projects</a></li>
                             <li><a href='/econest/project-details'>Project Details</a></li>
                             <li><a href='/econest/camping'>Camping</a></li>

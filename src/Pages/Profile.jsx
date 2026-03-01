@@ -149,7 +149,7 @@ const Profile = () => {
         )}
       </div>
 
-      <div className="upload-form" style={{ maxWidth: 720 }}>
+      <div className="upload-form">
         <label style={{ display: 'block', marginBottom: 8 }}>Select Type</label>
         <select value={postType} onChange={e => setPostType(e.target.value)} style={{ padding: 8, width: 240 }}>
           <option value="BLOG">BLOG</option>
@@ -163,13 +163,16 @@ const Profile = () => {
           <input ref={fileInputRef} type="file" onChange={handleFileChange} />
         </div>
 
-        <div>
+        <div className='formState'>
           {
             formsList[postType] && formsList[postType].map(i => {
               let { key = "", value = "" } = i;
               return <>
-                <h3>{value}</h3>
-                <textarea type="text" name={key} placeholder='Title' value={content[key]} onChange={handleInputChange} />
+                <div>
+                  <h3>{value}</h3>
+                  <textarea type="text" name={key} placeholder='Title' rows={4} cols={50} value={content[key]} onChange={handleInputChange} />
+
+                </div>
               </>
             })
           }

@@ -96,7 +96,7 @@ function Collaborate() {
                   <div className="col-xl-4 m-b-30" key={item.id || idx}>
                     <div className="project-card style-service">
                       <div className="thumb">
-                        <a href={item.link || "/econest/services-details"}>
+                        <a href={item.link || "/"}>
                           <ImageComp
                             alt={item.title || item.filename || "thumb"}
                             src={

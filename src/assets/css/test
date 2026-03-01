@@ -1,0 +1,56 @@
+
+Chat Flow 
+
+SDK - 
+ 
+init - SDK - signal 
+
+
+Cus 
+
+login  auth success
+1001
+
+room - generate - 120 - DB
+
+
+Agent 
+
+login auth susscess
+1005
+
+
+
+
+
+
+send message - to, message, etc - hi   -> C
+recive_message - to  -> A 
+ackno - >  
+reviced
+
+
+c - ackno <- ... reviced , he saw 
+
+
+Redux 
+
+Chat Hisotry - conv -> 2  - chat type - one to one
+
+Chat Hisotry - conv -> 3+ chat type grp
+
+active chat info -> active info - {name :sakt, id:34, room:34, sdsf:fss} 
+
+
+Call Back
+
+
+1. button e primary - fixed
+2. top heade up  - fixed
+3. join socila medai remave 0- fixed 
+4. 125k header remove - fixed
+5. galry spce - fixed
+6. login page UI  - fixed
+6. preview image size reduce min max - fixed
+7. heade section other areas  - fixe
+8. about count remove -fiex
