@@ -644,7 +644,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/econest/donations">
+                          <a className="e-primary-btn has-icon" href="/">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -654,7 +654,7 @@ function Home() {
                             </span>
                           </a>
 
-                          <div className="author-wrap">
+                          {/* <div className="author-wrap">
                             <img
                               src={author1}
                               alt="authors"
@@ -663,7 +663,7 @@ function Home() {
                               <h5>122.6k+</h5>
                               <p>Team Members</p>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -728,7 +728,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/econest/donations">
+                          <a className="e-primary-btn has-icon" href="/">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -812,7 +812,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/econest/donations">
+                          <a className="e-primary-btn has-icon" href="/">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -894,7 +894,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/econest/donations">
+                          <a className="e-primary-btn has-icon" href="/">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -934,7 +934,7 @@ function Home() {
 
         <div className="hero-slider-pagination-1"></div>
 
-        <div className="hero-slider-social">
+        <div className="hero-slider-social" style={{display:'none'}}>
           <div className="social-links">
             <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
               <i className="fab fa-facebook-f"></i>
@@ -1013,7 +1013,7 @@ function Home() {
             <div className="left text-center">
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <img src={icon1} alt="icon-1" />
-                <span>Why Us 11</span>
+                <span>Why Us</span>
               </div>
               <div className="common-title text-center d-none d-sm-none d-md-none d-lg-block d-xl-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <p>We believe that everyone deserves access to opportunities that empower them to learn, innovate, and grow. By bridging academia, research, and compassion, Annamalai Foundation is redefining how education transforms lives.</p>
@@ -1336,13 +1336,13 @@ function Home() {
         </div>
       </section>
 
-      <section className="what-we-do-section p-t-60 p-b-100 p-b-md-100 p-t-xs-80 p-b-xs-80" style={{ backgroundImage: "url(/src/assets/img/bg/what-we-do-bg-1.jpg)" }}>
+      <section  className="what-we-do-section p-t-60 p-b-100 p-b-md-100 p-t-xs-80 p-b-xs-80" style={{ display:"none", backgroundImage: "url(/src/assets/img/bg/what-we-do-bg-1.jpg)" }}>
         <div className="container">
           <div className="section-top-2">
             <div className="left text-center">
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <img src={icon1} alt="icon-1" />
-                <span>Why Us 1</span>
+                <span>Why Us </span>
               </div>
               <div className="common-title text-start" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <h2>Join a thriving community of researchers, innovators, and experts committed to advancing knowledge and creating meaningful impact.</h2>
@@ -1439,7 +1439,7 @@ function Home() {
                       <h5>Community Development Program</h5>
                       <p>We work to uplift communities through social, cultural, and environmental initiatives.</p>
                       <div className="details-btn">
-                        <a className="e-primary-btn has-icon is-hover-white" href="/econest/services-details">
+                        <a className="e-primary-btn has-icon is-hover-white" href="/">
                           KNOW MORE
                           <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span>
                         </a>

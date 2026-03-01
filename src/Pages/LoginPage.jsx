@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import './LoginPage.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './LoginPage.css';
 import useAuth from '../auth/useAuth';
 import { useNavigate } from 'react-router-dom';
+import logoPng from "../assets/img/logo/Annamalai12 1.png";
+
 
 const Login = () => {
   // ✅ Set permanent credentials
@@ -84,11 +86,10 @@ const Login = () => {
         <div className="login-card">
           {/* Header */}
           <div className="login-header">
-            <div className="app-icon">
-              <i className="bi bi-shield-lock"></i>
+            <div className="app-icon1">
+            <img src={logoPng} alt="" />
             </div>
             <h2 className="login-title">Welcome Back</h2>
-            <p className="login-subtitle">Please sign in to your account</p>
           </div>
 
           {/* Form */}

@@ -60,7 +60,7 @@ export default function AuthProvider({ children }) {
     try {
 
       const data = await mediaListAPI();
-      setMediaList(prev => ({ ...prev, loading: false, data:data?.data || [] }))
+      setMediaList(prev => ({ ...prev, loading: false, data: data?.data || [] }))
     } catch (error) {
       setMediaList(prev => ({ ...prev, loading: false, data: [], err: error }))
     } finally {
@@ -72,7 +72,11 @@ export default function AuthProvider({ children }) {
     <AuthContext.Provider value={{ user, token, loading, login, logout, mediaList }}>
 
       {
-        loading ? <div>Loading...</div> : children
+        loading ? <div className="fullscreen-loader">
+          <div className="spinner" />
+          <p className="loading-text">Loading...</p>
+        </div>
+          : children
       }
     </AuthContext.Provider>
   );

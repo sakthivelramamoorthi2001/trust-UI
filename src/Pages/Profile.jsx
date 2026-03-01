@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../assets/css/profile.css'
 import useAuth from '../auth/useAuth';
 import { uploadMediaAPI, mediaListAPI, deleteMediaAPI } from '../Hoc/api';
+import { formListing } from '../Hoc/constData';
 
 const Profile = () => {
   const [postType, setPostType] = useState('GALLERY');
@@ -44,6 +45,9 @@ const Profile = () => {
     if (dot >= 0) return src.slice(dot + 1).toLowerCase();
     return '';
   };
+
+
+  const [formsList, setFormsList] = useState({ ...formListing });
 
   const fileCategory = (item) => {
     const ext = getExtension(item);
@@ -112,17 +116,25 @@ const Profile = () => {
     } catch (err) {
       setMessage(err?.message || JSON.stringify(err));
     } finally {
-      setContent({title:""})
       setLoading(prev => ({ ...prev, upload: false }))
+
     }
   };
 
 
+
+  console.log(content, 'conten');
+
   if (loading.fullPage) {
     return <>
-      <p>Loading...</p>
+      <div className="fullscreen-loader">
+        <div className="spinner" />
+        <p className="loading-text">Loading...</p>
+      </div>
     </>
   }
+
+
 
 
   return (
@@ -152,7 +164,15 @@ const Profile = () => {
         </div>
 
         <div>
-          <input type="text" name='title' placeholder='Title' value={content.title} onChange={handleInputChange} />
+          {
+            formsList[postType] && formsList[postType].map(i => {
+              let { key = "", value = "" } = i;
+              return <>
+                <h3>{value}</h3>
+                <textarea type="text" name={key} placeholder='Title' value={content[key]} onChange={handleInputChange} />
+              </>
+            })
+          }
         </div>
 
         <div style={{ marginTop: 12 }}>
@@ -173,60 +193,86 @@ const Profile = () => {
 
       {loading.mediaContent ? <div>Loading...</div> : <div className="media-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
         {mediaList && mediaList.length > 0 ? (
-          mediaList.map((m, idx) => (
-            <div key={m.id || idx} className="media-item" style={{ border: '1px solid #eee', padding: 8, position: 'relative' }}>
-              <button
-                onClick={async (e) => {
-                  e.stopPropagation();
-                  const name = m.title || m.filename || m.id || 'this item';
-                  const ok = window.confirm(`Delete ${name}?`);
-                  if (!ok) return;
+          mediaList.map((m, idx) => {
 
-                  setLoading(prev => ({ ...prev, mediaContent: true }));
-                  setMessage('');
-                  try {
-                    const params = m.id ? { id: m.id } : m.key ? { key: m.key } : { filename: m.filename };
-                    const res = await deleteMediaAPI(params);
-                    setMessage(res?.message || 'Deleted');
-                    await fetchList(postType);
-                  } catch (err) {
-                    setMessage(err?.message || JSON.stringify(err));
-                  } finally {
-                    setLoading(prev => ({ ...prev, mediaContent: false }));
-                  }
-                }}
-                title="Delete"
-                style={{
-                  position: 'absolute',
-                  right: 8,
-                  top: 8,
-                  background: 'rgba(0,0,0,0.6)',
-                  color: '#fff',
-                  border: 'none',
-                  padding: '6px 8px',
-                  borderRadius: 4,
-                  cursor: 'pointer'
-                }}
-              >
-                <i className="fas fa-trash"></i>
-              </button>
-              {/* preview handled on image click */}
-              {String(m.mime).includes('image') ? (
-                <img
-                  src={m.url}
-                  alt={m.filename || 'media'}
-                  style={{ width: '100%', height: 120, objectFit: 'cover' }}
-                  onClick={() => openPreview(m)}
-                />
-              ) : (
-                <div onClick={() => openPreview(m)} style={{ height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fafafa', cursor: 'pointer' }}>{m.filename || 'No preview'}</div>
-              )}
-              <div style={{ marginTop: 8 }}>
-                <div style={{ fontSize: 13, fontWeight: 600 }}>{m.title || m.filename || m.id}</div>
-                <div style={{ fontSize: 12, color: '#666' }}>{m.postType || ''}</div>
+
+            let parsedContent = {};
+
+            try {
+              parsedContent = JSON.parse(m.content || "{}");
+            } catch (e) {
+              parsedContent = {};
+            }
+
+            return <>
+              <div key={m.id || idx} className="media-item" style={{ border: '1px solid #eee', padding: 8, position: 'relative' }}>
+                <button
+                  onClick={async (e) => {
+                    e.stopPropagation();
+                    const name = m.title || m.filename || m.id || 'this item';
+                    const ok = window.confirm(`Delete ${name}?`);
+                    if (!ok) return;
+
+                    setLoading(prev => ({ ...prev, mediaContent: true }));
+                    setMessage('');
+                    try {
+                      const params = m.id ? { id: m.id } : m.key ? { key: m.key } : { filename: m.filename };
+                      const res = await deleteMediaAPI(params);
+                      setMessage(res?.message || 'Deleted');
+                      await fetchList(postType);
+                    } catch (err) {
+                      setMessage(err?.message || JSON.stringify(err));
+                    } finally {
+                      setLoading(prev => ({ ...prev, mediaContent: false }));
+                    }
+                  }}
+                  title="Delete"
+                  style={{
+                    position: 'absolute',
+                    right: 8,
+                    top: 8,
+                    background: 'rgba(0,0,0,0.6)',
+                    color: '#fff',
+                    border: 'none',
+                    padding: '6px 8px',
+                    borderRadius: 4,
+                    cursor: 'pointer'
+                  }}
+                >
+                  <i className="fas fa-trash"></i>
+                </button>
+                {/* preview handled on image click */}
+                {String(m.mime).includes('image') ? (
+                  <img
+                    src={m.url}
+                    alt={m.filename || 'media'}
+                    style={{ width: '100%', height: 120, objectFit: 'cover' }}
+                    onClick={() => openPreview(m)}
+                  />
+                ) : (
+                  <div onClick={() => openPreview(m)} style={{ height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fafafa', cursor: 'pointer' }}>{m.filename || 'No preview'}</div>
+                )}
+                <div style={{ marginTop: 8 }}>
+                  <div style={{ fontSize: 13, fontWeight: 600 }}>{m.title || m.filename || m.id}</div>
+                  <div style={{ fontSize: 12, color: '#666' }}>{m.postType || ''}</div>
+                </div>
+
+                <div>
+                  <ul>
+                    {Object.values(m.content).length > 0 ? (
+                      Object.values(parsedContent).map((c, i) => (
+                        <li key={i}>{c || "-"}</li>
+                      ))
+                    ) : (
+                      <li>No content available</li>
+                    )}
+                  </ul>
+
+                </div>
               </div>
-            </div>
-          ))
+            </>
+
+          })
         ) : (
           <div>No items found for {postType}</div>
         )}

@@ -209,7 +209,7 @@ function BlogDetails() {
             </div>
         </div>
     
-        <div className="w-100 d-none d-lg-block d-xl-block">
+        <div className="w-100 d-none d-lg-block d-xl-block header-top">
     
             <div className="header-middle">
     

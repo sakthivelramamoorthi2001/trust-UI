@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from './Footer';
 import Header from './Headers';
 import { mediaListAPI } from '../Hoc/api';
 import useAuth from '../auth/useAuth';
+import Aos from 'aos';
+import ImageComp from './ImageComp';
 
 
 function MediaTalks() {
   const { mediaList } = useAuth();
 
+
+  const navigate = useNavigate();
 
   // React.useEffect(() => {
   //   function handleScroll() {  // header sticky
@@ -188,6 +192,10 @@ function MediaTalks() {
 
 
 
+  useEffect(() => {
+    Aos.init()
+  }, [])
+
 
 
   return (
@@ -261,7 +269,8 @@ function MediaTalks() {
                 return (
                   <div className="event-card" key={item.id || idx}>
                     <div className="event-img">
-                      <img src={src} alt={title} />
+                      <ImageComp src={src} alt={""} />
+
                       {date && (
                         <div className="event-date">
                           <span className="day">{day}</span>
@@ -277,7 +286,9 @@ function MediaTalks() {
                       <div className="details-btn">
                         <a
                           className="e-primary-btn has-icon is-hover-white"
-                          href={item.link || '/econest/services-details'}
+                          onClick={() => {
+                            navigate(`/preview/${item.id}`)
+                          }}
                         >
                           KNOW MORE
                           <span className="icon-wrap">

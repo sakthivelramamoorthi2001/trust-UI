@@ -1,0 +1,26 @@
+.post-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+}
+
+.post-heading {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.post-heading:first-child {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.post-content {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+}

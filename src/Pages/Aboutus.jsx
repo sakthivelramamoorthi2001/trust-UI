@@ -469,7 +469,7 @@ function Aboutus() {
               <div className="about-three__right">
                 <div className="about-three__right-img">
                   <img src={abtUsImg} alt="" />
-                  <div className="about-three__round-text-box">
+                  <div className="about-three__round-text-box" style={{display:"none"}}>
                     <div className="about-three__round-text-box-inner  rotate-me">
                       <div className="about-three__curved-circle">
                         <span className="char1"
@@ -636,7 +636,7 @@ function Aboutus() {
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <img src="/src/assets/img/icons/icon-1.svg" alt="icon-1" />
                 <span>Why Us</span>
-              </div>
+              </div>Education & Scholarship Program
               <div className="common-title text-center d-none d-sm-none d-md-none d-lg-block d-xl-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <p>We believe that everyone deserves access to opportunities that empower them to learn, innovate, and grow. By bridging academia, research, and compassion, Annamalai Foundation is redefining how education transforms lives.</p>
               </div>
