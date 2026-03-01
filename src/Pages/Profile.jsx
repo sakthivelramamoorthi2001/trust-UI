@@ -61,7 +61,15 @@ const Profile = () => {
   };
 
   const openPreview = (item) => {
-    setPreviewItem(item);
+
+    let parsedContent = {};
+
+    try {
+      parsedContent = JSON.parse(item?.content || "{}");
+    } catch (e) {
+      parsedContent = {};
+    }
+    setPreviewItem({...item, parsedContent});
     setPreviewOpen(true);
   };
 
@@ -260,11 +268,14 @@ const Profile = () => {
                   <div style={{ fontSize: 12, color: '#666' }}>{m.postType || ''}</div>
                 </div>
 
-                <div>
+                <div
+                    onClick={() => openPreview(m)}
+                
+                >
                   <ul>
                     {Object.values(m.content).length > 0 ? (
                       Object.values(parsedContent).map((c, i) => (
-                        <li key={i}>{c || "-"}</li>
+                        <li key={i} className="truncate-text">{c || "-"}</li>
                       ))
                     ) : (
                       <li>No content available</li>
@@ -327,6 +338,20 @@ const Profile = () => {
               }
               return <div style={{ padding: 20 }}><a href={url} target="_blank" rel="noreferrer">Open / Download</a></div>;
             })()}
+
+
+            <div>
+              <ul>
+                {Object.values(previewItem.content).length > 0 ? (
+                  Object.values(previewItem.parsedContent).map((c, i) => (
+                    <li key={i} className="">{c || "-"}</li>
+                  ))
+                ) : (
+                  <li>No content available</li>
+                )}
+              </ul>
+
+            </div>
           </div>
         </div>
       )}

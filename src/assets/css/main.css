@@ -6785,6 +6785,13 @@ padding-left: 40px !important;
       padding: 36px 100px 0px 100px;
 }
 
+.truncate-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* how many lines you want */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .thumb-wrap img {
   max-width: 100%;
   max-height: 500px;
