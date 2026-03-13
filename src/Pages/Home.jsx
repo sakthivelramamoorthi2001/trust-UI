@@ -640,6 +640,7 @@ function Home() {
                         </div>
 
                         <div
+                         style={{display:'none'}}
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
@@ -724,6 +725,7 @@ function Home() {
                         </div>
 
                         <div
+                        style={{display:'none'}}
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
@@ -811,6 +813,7 @@ function Home() {
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
+                          style={{display:"none"}}
                         >
                           <a className="e-primary-btn has-icon" href="/">
                             Join Us Today
@@ -893,6 +896,7 @@ function Home() {
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
+                          style={{display:"none"}}
                         >
                           <a className="e-primary-btn has-icon" href="/">
                             Become One Today
@@ -932,7 +936,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="hero-slider-pagination-1"></div>
+        {/* <div className="hero-slider-pagination-1"></div> */}
 
         <div className="hero-slider-social" style={{display:'none'}}>
           <div className="social-links">
@@ -1027,7 +1031,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/'>
+                  <a href='/aboutus'>
                     <div className="image-container">
                       <img src={frame106} alt="thumb-14" />
                     </div>
@@ -1038,7 +1042,7 @@ function Home() {
                       Access global experts, cutting-edge facilities, and collaborative networks to accelerate your research.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/aboutus'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1052,7 +1056,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/'>
+                  <a href='/aboutus'>
                     <div className="image-container">
                       <img src={frame107} alt="thumb-15" />
                     </div>
@@ -1063,7 +1067,7 @@ function Home() {
                       Partner with us to foster cross-disciplinary projects and expand your research impact globally.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/aboutus'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1077,7 +1081,7 @@ function Home() {
             <div className="col-xl-4 col-md-6 col-sm-12">
               <div className="project-card text-center">
                 <div className="thumb">
-                  <a href='/'>
+                  <a href='/aboutus'>
                     <div className="image-container">
                       <img src={frame108} alt="thumb-16" />
                     </div>
@@ -1088,7 +1092,7 @@ function Home() {
                       Transform your ideas into reality with mentorship, resources, and connections to research partners.
                     </p>
                     <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
+                      <a className='e-primary-btn has-icon is-hover-white' href='/aboutus'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
@@ -1573,7 +1577,7 @@ function Home() {
 
         <div className="details-btn1">
           <a className="e-primary-btn has-icon is-hover-white" href="/aboutus">
-            KNOW MORE
+            VIEW ALL
             <span className="icon-wrap">
               <span className="icon">
                 <i className="fas fa-arrow-right"></i>
@@ -1615,7 +1619,7 @@ function Home() {
                   className="e-primary-btn has-icon is-hover-white"
                   href="/mediatalks"
                 >
-                  KNOW MORE
+                  VIEW MORE
                   <span className="icon-wrap">
                     <span className="icon">
                       <i className="fas fa-arrow-right"></i>
@@ -1648,7 +1652,8 @@ function Home() {
                   className="e-primary-btn has-icon is-hover-white"
                   href="/mediatalks"
                 >
-                  KNOW MORE
+                                    VIEW MORE
+
                   <span className="icon-wrap">
                     <span className="icon">
                       <i className="fas fa-arrow-right"></i>
@@ -1681,7 +1686,7 @@ function Home() {
                   className="e-primary-btn has-icon is-hover-white"
                   href="/mediatalks"
                 >
-                  KNOW MORE
+                  VIEW MORE
                   <span className="icon-wrap">
                     <span className="icon">
                       <i className="fas fa-arrow-right"></i>
@@ -1736,7 +1741,7 @@ function Home() {
             className="e-primary-btn has-icon is-hover-white"
             href="/gallery"
           >
-            KNOW MORE
+            VIEW ALL
             <span className="icon-wrap">
               <span className="icon">
                 <i className="fas fa-arrow-right"></i>
@@ -1804,8 +1809,7 @@ function Home() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
-                              MORE
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
                               <button className="total-shared"><i className="fa-solid fa-share-nodes"></i>
@@ -1843,8 +1847,7 @@ function Home() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/blog'>KNOW
-                              MORE
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
                               <button className="total-shared"><i className="fa-solid fa-share-nodes"></i>

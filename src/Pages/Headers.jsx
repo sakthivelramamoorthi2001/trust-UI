@@ -84,14 +84,14 @@ const Header = () => {
                                 <div className="top-bar-content d-flex justify-content-between text-center">
                                     <div className="text-wrap gap-5">
                                         <span>
-                                            <i className="fa-solid fa-phone"></i> 908-516-3069
+                                            <i className="fa-solid fa-phone"></i> +91 9841152211
                                         </span>
                                         <span>
                                             <i className="fa-solid fa-envelope"></i> info@annamalaitrust.com
                                         </span>
                                     </div>
                                     <div>
-                                        <span>BECOME A VOLENTEER</span>
+                                        {/* <span>BECOME A VOLENTEER</span> */}
                                     </div>
                                 </div>
                             </div>
