@@ -19,11 +19,7 @@ function Gallery() {
     mediaList.data
       ?.filter(i => i.PostType === "GALLERY")
       ?.map(item =>
-        item.url ||
-        (item.key
-          ? `${process.env.REACT_APP_MEDIA_BASE_URL?.replace(/\/$/, '')}/${String(item.key).replace(/^\//, '')}`
-          : '/src/assets/img/event-1.jpg')
-      ) || [];
+        item.url) || [];
 
 
   console.log(galleryImages, 'galleryImages');
