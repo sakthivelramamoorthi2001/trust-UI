@@ -4,7 +4,7 @@ import loadingImage from "../assets/images/loading.png";
 // remember loaded images across components
 const loadedImageCache = new Map();
 
-const ImageComp = ({ src, alt }) => {
+const ImageComp = ({ src, alt,onClick }) => {
   const [loaded, setLoaded] = useState(loadedImageCache.has(src));
   const [error, setError] = useState(false);
 
@@ -35,6 +35,7 @@ const ImageComp = ({ src, alt }) => {
             minHeight: "230px",
             maxHeight: "230px"
           }}
+          onClick={onClick}
           onLoad={() => {
             loadedImageCache.set(src, true); // remember success
             setLoaded(true);

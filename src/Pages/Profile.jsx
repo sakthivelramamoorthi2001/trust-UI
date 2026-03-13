@@ -105,7 +105,7 @@ const Profile = () => {
 
   const handleUpload = async () => {
 
-     if (formsList[postType].find(i => i.key == "title") &&  !content?.title) {
+    if (formsList[postType].find(i => i.key == "title") && !content?.title) {
       setMessage('Please add some title');
       return;
     }
@@ -116,7 +116,7 @@ const Profile = () => {
       return;
     }
 
-   
+
     setLoading(prev => ({ ...prev, upload: true }))
     setMessage('');
     try {
@@ -127,11 +127,17 @@ const Profile = () => {
 
       const res = await uploadMediaAPI(formData);
       setMessage(res?.message || 'Upload successful');
+      alert("Upload successful")
       // refresh list
       await fetchList(postType);
       // clear file input
       setFile(null);
+      formsList[postType] && formsList[postType].map(i => {
+        let { key = "", value = "", textEditor = false } = i;
+        setContent((prevContent) => ({ ...prevContent, [key]: "" }));
+      })
       if (fileInputRef.current) fileInputRef.current.value = '';
+
     } catch (err) {
       setMessage(err?.message || JSON.stringify(err));
     } finally {
@@ -213,24 +219,26 @@ const Profile = () => {
             formsList[postType] && formsList[postType].map(i => {
               let { key = "", value = "", textEditor = false } = i;
               return <>
-                <div>
+                <div className='merge'>
+
                   {textEditor && <TextEditor value={content[key]} onChange={(va) => {
                     setContent((prevContent) => ({ ...prevContent, [key]: va }));
                   }} />}
 
                   {!textEditor && <>
-                  <div className=''>
-                      <h3>Title</h3>
+                    <h3>Title</h3>
                     <Input
                       name={key}
+                      placeholder='Enter Your Title...'
                       value={content[key]}
                       onChange={handleInputChange}
                     />
-                  </div>
                   </>
+
 
                   }
                 </div>
+
               </>
             })
           }
@@ -319,7 +327,6 @@ const Profile = () => {
 
                 <div
                   onClick={() => openPreview(m)}
-
                 >
                   <ul>
                     {Object.values(m.content).length > 0 ? (

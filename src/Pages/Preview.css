@@ -1,7 +1,7 @@
 .post-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  padding: 24px;
+  /* padding: 24px; */
   font-family: "Inter", sans-serif;
 }
 
@@ -24,3 +24,5 @@
   line-height: 1.7;
   color: #4b5563;
 }
+
+

@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
 import annamLogo from "../assets/img/thumbs/Annamalai_logo.jpg";
 // import Icon1 from "../assets/img/icons/icon-1.svg";
+import Aos from 'aos';
+import { useEffect } from "react";
 
 // import { ReactComponent as Icon1 } from "../assets/img/icons/icon-1.svg";
 
 
 
+
+
 export default function Footer() {
+      useEffect(() => {
+    Aos.init()
+  }, [])
     return <>
         <footer className="footer-section footer-section-2 p-t-125 p-t-md-100 p-t-xs-30 p-b-50">
             <div className="container">

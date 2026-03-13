@@ -66,7 +66,7 @@ const Preview = () => {
     console.log(media, 'media', listing);
 
 
-    
+
 
 
     return (<>
@@ -107,13 +107,19 @@ const Preview = () => {
 
 
         <div className="details-content aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-            <div className="thumb-wrap m-b-50 flexing">
+            <div className="thumb-wrap m-b-20 flexing">
                 <img src={media.url} alt="thumb" />
             </div>
 
 
 
+
+
+
             <div className="post-wrapper">
+                <p style={{ textAlign: "right" }}>
+                    Created At : {new Date(media.createdAt).toLocaleString("en-IN")}
+                </p>
                 <h3 className="post-heading">
                     {media.content?.title}
                 </h3>

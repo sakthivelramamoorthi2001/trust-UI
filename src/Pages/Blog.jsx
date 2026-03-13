@@ -112,11 +112,11 @@ function Blog() {
                               </div>
                             </div> */}
                             <div class="title">
-                              <h3>
+                              <h5 className='truncate-text'>
                                 <a onClick={() => {
                                   navigate(`/preview/${item.id}`)
                                 }}>{parsedContent.title || "New Blog"}</a>
-                              </h3>
+                              </h5>
                             </div>
                           </div>
                           <div class="details-btn">
