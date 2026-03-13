@@ -6616,7 +6616,7 @@ padding-left: 40px !important;
 .events-section .event-img img {
   width: 100%;
   height: 250px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .events-section .event-date {

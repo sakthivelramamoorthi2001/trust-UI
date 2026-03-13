@@ -192,6 +192,8 @@ function MediaTalks() {
 
 
 
+  console.log(mediaList, 'mediaList');
+
   useEffect(() => {
     Aos.init()
   }, [])
@@ -250,12 +252,24 @@ function MediaTalks() {
           <div className="events-container">
             {mediaList.data && mediaList.data.filter(i => i.PostType == "MEDIA_TALKS").length > 0 ? (
               mediaList.data.filter(i => i.PostType == "MEDIA_TALKS").map((item, idx) => {
+                console.log(item, 'item');
+
                 const src = item.url || (item.key ? (process.env.REACT_APP_MEDIA_BASE_URL ? `${process.env.REACT_APP_MEDIA_BASE_URL.replace(/\/$/, '')}/${String(item.key).replace(/^\//, '')}` : item.key) : '/src/assets/img/event-1.jpg');
                 const title = item.title || item.filename || 'Untitled Event';
                 const desc = item.description || item.caption || '';
                 // optional date parsing if available
                 const date = item.date || item.createdAt || null;
                 let day = '', month = '', year = '';
+                let parsedContent = {};
+
+                try {
+                  parsedContent = JSON.parse(item?.content || "{}");
+                } catch (e) {
+                  parsedContent = {};
+                }
+
+                console.log(parsedContent,'parsedContent');
+                
                 if (date) {
                   try {
                     const d = new Date(date);
@@ -281,8 +295,8 @@ function MediaTalks() {
                     </div>
 
                     <div className="event-content">
-                      <h4>{title}</h4>
-                      <p>{desc}</p>
+                      <h4>{parsedContent.title || "New Media Event"}</h4>
+                      {/* <p>{desc}</p> */}
                       <div className="details-btn">
                         <a
                           className="e-primary-btn has-icon is-hover-white"

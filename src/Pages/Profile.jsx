@@ -4,6 +4,8 @@ import '../assets/css/profile.css'
 import useAuth from '../auth/useAuth';
 import { uploadMediaAPI, mediaListAPI, deleteMediaAPI } from '../Hoc/api';
 import { formListing } from '../Hoc/constData';
+import TextEditor from '../Hoc/TextEditor';
+import { Input } from 'antd';
 
 const Profile = () => {
   const [postType, setPostType] = useState('GALLERY');
@@ -69,7 +71,7 @@ const Profile = () => {
     } catch (e) {
       parsedContent = {};
     }
-    setPreviewItem({...item, parsedContent});
+    setPreviewItem({ ...item, parsedContent });
     setPreviewOpen(true);
   };
 
@@ -102,10 +104,19 @@ const Profile = () => {
   };
 
   const handleUpload = async () => {
+
+     if (formsList[postType].find(i => i.key == "title") &&  !content?.title) {
+      setMessage('Please add some title');
+      return;
+    }
+
+
     if (!file) {
       setMessage('Please select a file to upload.');
       return;
     }
+
+   
     setLoading(prev => ({ ...prev, upload: true }))
     setMessage('');
     try {
@@ -131,7 +142,6 @@ const Profile = () => {
 
 
 
-  console.log(content, 'conten');
 
   if (loading.fullPage) {
     return <>
@@ -144,53 +154,95 @@ const Profile = () => {
 
 
 
+  console.log(formsList, 'formsList[postType]', content);
+
 
   return (
     <div className="profile-page container">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <h2 style={{ margin: 0 }}>Media Upload</h2>
-        {user && (
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <div style={{ fontSize: 14 }}>Signed in as <strong>{user.name || user.email || user.id}</strong></div>
-            <button onClick={handleLogout} className="e-secondary-btn" style={{ marginLeft: 8 }}>Logout</button>
+        <div className="user-section">
+          <div className="user-info">
+            <div className="avatar">
+              {(user.name || user.email || "U")[0].toUpperCase()}
+            </div>
+
+            <div className="user-text">
+              <span className="welcome">Welcome</span>
+              <strong>{user.name || user.email || user.id}</strong>
+            </div>
           </div>
-        )}
+
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
+        </div>
       </div>
 
       <div className="upload-form">
         <label style={{ display: 'block', marginBottom: 8 }}>Select Type</label>
-        <select value={postType} onChange={e => setPostType(e.target.value)} style={{ padding: 8, width: 240 }}>
+        {/* <select value={postType} onChange={e => setPostType(e.target.value)} style={{ padding: 8, width: 240 }}>
           <option value="BLOG">BLOG</option>
           <option value="GALLERY">GALLERY</option>
           <option value="MEDIA_TALKS">MEDIA_TALKS</option>
           <option value="COLLAB">COLLAB</option>
-        </select>
+        </select> */}
+        <div className="post-tabs">
+          {["BLOG", "GALLERY", "MEDIA_TALKS", "COLLAB"].map((type) => (
+            <button
+              key={type}
+              className={`tab-btn ${postType === type ? "active" : ""}`}
+              onClick={() => setPostType(type)}
+            >
+              {type.replace("_", " ")}
+            </button>
+          ))}
+        </div>
 
-        <div style={{ marginTop: 12 }}>
-          <label style={{ display: 'block', marginBottom: 6 }}>Choose file</label>
+
+
+        <div className="file-upload">
+          <label>Choose File</label>
           <input ref={fileInputRef} type="file" onChange={handleFileChange} />
         </div>
 
         <div className='formState'>
+
+
           {
             formsList[postType] && formsList[postType].map(i => {
-              let { key = "", value = "" } = i;
+              let { key = "", value = "", textEditor = false } = i;
               return <>
                 <div>
-                  <h3>{value}</h3>
-                  <textarea type="text" name={key} placeholder='Title' rows={4} cols={50} value={content[key]} onChange={handleInputChange} />
+                  {textEditor && <TextEditor value={content[key]} onChange={(va) => {
+                    setContent((prevContent) => ({ ...prevContent, [key]: va }));
+                  }} />}
 
+                  {!textEditor && <>
+                  <div className=''>
+                      <h3>Title</h3>
+                    <Input
+                      name={key}
+                      value={content[key]}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  </>
+
+                  }
                 </div>
               </>
             })
           }
         </div>
 
-        <div style={{ marginTop: 12 }}>
-          <button onClick={handleUpload} disabled={loading.upload} className="e-primary-btn has-icon">
-            {loading.upload ? 'Uploading…' : 'Upload'}
-          </button>
-        </div>
+        <button
+          onClick={handleUpload}
+          disabled={loading.upload}
+          className="upload-btn"
+        >
+          {loading.upload ? "Uploading..." : "Upload File"}
+        </button>
 
 
 
@@ -205,10 +257,7 @@ const Profile = () => {
       {loading.mediaContent ? <div>Loading...</div> : <div className="media-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
         {mediaList && mediaList.length > 0 ? (
           mediaList.map((m, idx) => {
-
-
             let parsedContent = {};
-
             try {
               parsedContent = JSON.parse(m.content || "{}");
             } catch (e) {
@@ -269,13 +318,17 @@ const Profile = () => {
                 </div>
 
                 <div
-                    onClick={() => openPreview(m)}
-                
+                  onClick={() => openPreview(m)}
+
                 >
                   <ul>
                     {Object.values(m.content).length > 0 ? (
                       Object.values(parsedContent).map((c, i) => (
-                        <li key={i} className="truncate-text">{c || "-"}</li>
+                        <li
+                          className='truncate-text'
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: c || "-" }}
+                        ></li>
                       ))
                     ) : (
                       <li>No content available</li>
@@ -291,6 +344,10 @@ const Profile = () => {
           <div>No items found for {postType}</div>
         )}
       </div>}
+
+
+
+
       {previewOpen && previewItem && (
         <div
           className="preview-modal"
@@ -320,7 +377,9 @@ const Profile = () => {
               overflow: 'auto'
             }}
           >
-            <button onClick={closePreview} style={{ position: 'absolute', right: 8, top: 8, border: 'none', background: 'transparent', fontSize: 20, cursor: 'pointer' }} title="Close">×</button>
+            <button className="preview-close" onClick={closePreview}>
+              ✕
+            </button>
             {(() => {
               const url = previewItem.url
               const cat = fileCategory(previewItem);
@@ -344,7 +403,10 @@ const Profile = () => {
               <ul>
                 {Object.values(previewItem.content).length > 0 ? (
                   Object.values(previewItem.parsedContent).map((c, i) => (
-                    <li key={i} className="">{c || "-"}</li>
+                    <li
+                      key={i}
+                      dangerouslySetInnerHTML={{ __html: c || "-" }}
+                    ></li>
                   ))
                 ) : (
                   <li>No content available</li>

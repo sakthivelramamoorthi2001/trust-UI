@@ -72,6 +72,15 @@ function Blog() {
                       month = d.toLocaleString('default', { month: 'short' });
                     } catch (e) { }
                   }
+
+                  let parsedContent = {};
+
+                  try {
+                    parsedContent = JSON.parse(item?.content || "{}");
+                  } catch (e) {
+                    parsedContent = {};
+                  }
+
                   return (
                     <div class="col-xl-4 col-md-6 col-sm-12 m-b-30" key={item.id || idx}>
                       <div class="blog-card-2">
@@ -92,7 +101,7 @@ function Blog() {
                         </div>
                         <div class="content">
                           <div class="content-top p-0 m-b-20">
-                            <div class="author">
+                            {/* <div class="author">
                               <div class="admin">
                                 <i class="fa fa-circle-user"></i>
                                 <span>Admin</span>
@@ -101,12 +110,12 @@ function Blog() {
                                 <i class="fa fa-bookmark"></i>
                                 <span>Solar</span>
                               </div>
-                            </div>
+                            </div> */}
                             <div class="title">
                               <h3>
                                 <a onClick={() => {
                                   navigate(`/preview/${item.id}`)
-                                }}>{title}</a>
+                                }}>{parsedContent.title || "New Blog"}</a>
                               </h3>
                             </div>
                           </div>

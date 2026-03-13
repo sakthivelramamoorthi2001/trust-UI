@@ -58,13 +58,15 @@ const Preview = () => {
     }
 
 
-    const getTitle = () => (media?.content?.Title || media?.PostType || "").toString().toUpperCase();
+    const getTitle = () => (media?.content?.Title || media?.PostType || "").toString().toUpperCase().replace("_", " ");
 
-    
+
 
     const listing = formListing[media?.PostType] || [];
     console.log(media, 'media', listing);
 
+
+    
 
 
     return (<>
@@ -112,22 +114,37 @@ const Preview = () => {
 
 
             <div className="post-wrapper">
-                {listing.map((item) => {
+                <h3 className="post-heading">
+                    {media.content?.title}
+                </h3>
+
+
+                <div
+                    dangerouslySetInnerHTML={{ __html: media?.content?.content || "" }}
+                ></div>
+
+
+
+                {/* <p key={item.key} className="post-content">
+                    //         {value}
+                    //     </p> */}
+                {/* {listing.map((item) => {
+
                     const value = media.content[item.key];
                     if (!value) return null;
 
                     const isHeading = item.key.toLowerCase().includes("heading") || item.key === "Title";
 
-                    return isHeading ? (
-                        <h3 key={item.key} className="post-heading">
-                            {value}
-                        </h3>
-                    ) : (
-                        <p key={item.key} className="post-content">
-                            {value}
-                        </p>
-                    );
-                })}
+                    // return isHeading ? (
+                    //     <h3 key={item.key} className="post-heading">
+                    //         {value}
+                    //     </h3>
+                    // ) : (
+                    //     <p key={item.key} className="post-content">
+                    //         {value}
+                    //     </p>
+                    // );
+                })} */}
             </div>
 
         </div>

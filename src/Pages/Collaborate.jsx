@@ -92,8 +92,18 @@ function Collaborate() {
               className="row"
             >
               {mediaList.data && mediaList.data.filter(i => i.PostType == "COLLAB").length > 0 ? (
-                mediaList.data.filter(i => i.PostType == "COLLAB").map((item, idx) => (
-                  <div className="col-xl-4 m-b-30" key={item.id || idx}>
+                mediaList.data.filter(i => i.PostType == "COLLAB").map((item, idx) => {
+                  let parsedContent = {};
+
+                  try {
+                    parsedContent = JSON.parse(item?.content || "{}");
+                  } catch (e) {
+                    parsedContent = {};
+                  }
+
+
+
+                  return (<div className="col-xl-4 m-b-30" key={item.id || idx}>
                     <div className="project-card style-service">
                       <div className="thumb">
                         <a href={item.link || "/"}>
@@ -108,15 +118,12 @@ function Collaborate() {
                                 : "/src/assets/img/thumbs/thumb-68.webp")
                             }
                           />
-
-
-
                         </a>
 
                         {/* this one is hide other will run */}
 
                         <div className="content">
-                          <h5>{item.title || item.filename || "Untitled"}</h5>
+                          <h5>{parsedContent.title || "New Collab"}</h5>
                           <p>{item.description || item.caption || item.alt || ""}</p>
                           <div className="details-btn">
                             <a
@@ -138,8 +145,9 @@ function Collaborate() {
 
                       </div>
                     </div>
-                  </div>
-                ))
+                  </div>)
+                }
+                )
               ) : (
                 <div className="col-12">No items found for Collaborate.</div>
               )}
