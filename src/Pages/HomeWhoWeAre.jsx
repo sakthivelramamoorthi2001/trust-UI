@@ -4,7 +4,7 @@ import aboutShape1 from "../assets/images/shapes/about-three-shape-1.png";
 import aboutShape2 from "../assets/images/shapes/about-three-shape-2.png";
 import aboutPerumal from "../assets/img/abt-us perumalannamalai.jpg";
 
-export default function HomeWhoWeAre({ dontWantButton = false }) {
+export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false }) {
 
   useEffect(() => {
     // circle count
@@ -64,13 +64,13 @@ export default function HomeWhoWeAre({ dontWantButton = false }) {
                     CORE VALUES
                   </button>
 
-                  <button
+{!missonOff &&                   <button
                     className={`tab-btn ${activeTab === "mission" ? "active" : ""}`}
                     onClick={() => setActiveTab("mission")}
                   >
                     MISSION & VISION
                   </button>
-
+}
                   <button
                     className={`tab-btn ${activeTab === "vision" ? "active" : ""}`}
                     onClick={() => setActiveTab("vision")}

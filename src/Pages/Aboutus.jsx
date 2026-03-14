@@ -161,7 +161,7 @@ function Aboutus() {
         </div>
       </section>
 
-<HomeWhoWeAre dontWantButton={true} />
+<HomeWhoWeAre dontWantButton={true} missonOff={true} />
       <section className="about-three" style={{display:"none"}}>
         <div className="about-three__shape-1 d-none d-sm-none d-md-none d-lg-block">
           <img src={aboutShape1} alt="" />
@@ -342,7 +342,7 @@ function Aboutus() {
           </div>
         </div>
       </section>
-
+{false &&
       <section className="what-we-do-section p-t-60 p-b-md-100 p-t-xs-80 p-b-xs-80">
         <div className="container why-us-section">
           <div className="section-top-2">
@@ -450,7 +450,7 @@ function Aboutus() {
 	<div className="shape-11">
 		<img src="assets/img/shapes/shape-11.webp" alt="shape-11"/>
 	</div> --> */}
-      </section>
+      </section>}
 
       <section className="team-section">
         <div className="team-head">
