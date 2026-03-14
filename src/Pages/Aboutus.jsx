@@ -30,279 +30,88 @@ import event1 from "../assets/img/event-1.jpg";
 import event2 from "../assets/img/event-2.jpg";
 import Header from './Headers';
 import Footer from './Footer';
+import WhoWeAre from './WhoWeAre';
+  import { useState } from "react";
 
 function Aboutus() {
 
-  // React.useEffect(() => {
-  //   function handleScroll() {  // header sticky
-  //     let header = document.querySelector(".header-section");
-  //     if (!header) return;
-  //     let scrollY = window.scrollY;
-  //     let pageHeight = document.body.scrollHeight;
-
-  //     let triggerPoint = pageHeight * 0.06; // 12%
-
-  //     if (scrollY > triggerPoint) {
-  //       header.classList.add("show-header");
-  //     } else {
-  //       header.classList.remove("show-header");
-  //     }
-  //   }
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
-  // React.useEffect(() => {
-  //   function updateNavVisibility() {
-  //     const navMenus = document.querySelectorAll('.main-menu-2, .header-section, .header-section-1');
-  //     if (window.innerWidth <= 991) {
-  //       navMenus.forEach(el => {
-  //         el.classList.remove('d-none', 'd-sm-none', 'd-md-none', 'd-lg-block', 'd-xl-block');
-  //         el.classList.add('d-block');
-  //       });
-  //     } else {
-  //       navMenus.forEach(el => {
-  //         el.classList.remove('d-block');
-  //         // Restore original classes if needed (optional)
-  //       });
-  //     }
-  //   }
-
-  //   function handleScrollNavStyle() {
-  //     const header = document.querySelector('.header-section');
-  //     const navMenu = document.querySelector('.main-menu-2');
-  //     if (!header || !navMenu) return;
-  //     if (window.scrollY > 20) {
-  //       header.style.background = '#fff';
-  //       header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.07)';
-  //       navMenu.querySelectorAll('a').forEach(a => {
-  //       });
-  //     } else {
-  //       header.style.background = '';
-  //       header.style.boxShadow = '';
-  //       navMenu.style.background = '';
-  //       navMenu.querySelectorAll('a').forEach(a => {
-  //         a.style.color = '';
-  //       });
-  //     }
-  //   }
-
-  //   updateNavVisibility();
-  //   window.addEventListener('resize', updateNavVisibility);
-  //   window.addEventListener('scroll', handleScrollNavStyle);
-
-  //   // Set initial nav style on mount
-  //   handleScrollNavStyle();
-
-  //   return () => {
-  //     window.removeEventListener('resize', updateNavVisibility);
-  //     window.removeEventListener('scroll', handleScrollNavStyle);
-  //   };
-  // }, []);
-
-  // // React.useEffect(() => {  // menu bar
-  // //     const $ = window.jQuery;
-  // //     if (!$) return;
-
-  // //     const handleOpen = function (e) {
-  // //         e.preventDefault();
-  // //         $('body').toggleClass('overflow-hidden');
-  // //         $('.off-canvas-menubar').toggleClass('active');
-  // //         $('.off-canvas-menubar-body').toggleClass('active');
-  // //     };
-
-  // //     const handleClose = function (e) {
-  // //         e.preventDefault();
-  // //         $('body').removeClass('overflow-hidden');
-  // //         $('.off-canvas-menubar').removeClass('active');
-  // //         $('.off-canvas-menubar-body').removeClass('active');
-  // //     };
-
-  // //     $('[data-toggle="menubar"]').on('click', handleOpen);
-  // //     $('[data-close="menubar"]').on('click', handleClose);
-
-  // //     return () => {
-  // //         $('[data-toggle="menubar"]').off('click', handleOpen);
-  // //         $('[data-close="menubar"]').off('click', handleClose);
-  // //     };
-  // // }, []);
-
-  // React.useEffect(() => {  //stat counter animation
-  //   const counters = document.querySelectorAll('.stat-number');
-  //   const speed = 400;
-
-  //   counters.forEach(counter => {
-  //     const animate = () => {
-  //       const value = +counter.getAttribute('data-target');
-  //       const current = +counter.innerText;
-  //       const increment = value / speed;
-
-  //       if (current < value) {
-  //         counter.innerText = Math.ceil(current + increment);
-  //         setTimeout(animate, 10);
-  //       } else {
-  //         if (value >= 3000) counter.innerText = "3K+";
-  //         else if (value === 95) counter.innerText = "95%";
-  //         else counter.innerText = value + "+";
-  //       }
-  //     };
-  //     animate();
-  //   });
-  // }, []);
-
-  // React.useEffect(() => { // circle count
-  //   const counters = document.querySelectorAll(".count-text");
-
-  //   counters.forEach(counter => {
-  //     const updateCount = () => {
-  //       const target = +counter.getAttribute("data-stop");
-  //       const speed = +counter.getAttribute("data-speed");
-  //       const current = +counter.innerText;
-  //       const increment = target / (speed / 50);
-
-  //       if (current < target) {
-  //         counter.innerText = Math.ceil(current + increment);
-  //         setTimeout(updateCount, 50);
-  //       } else {
-  //         counter.innerText = target;
-  //       }
-  //     };
-  //     updateCount();
-  //   });
-  // }, []);
-
-  // React.useEffect(() => {      //abt-us tab section
-  //   const buttons = document.querySelectorAll(".tab-btn");
-  //   const contents = document.querySelectorAll(".tab-content");
-
-  //   function handleTabClick(e) {
-  //     buttons.forEach(b => b.classList.remove("active"));
-  //     contents.forEach(c => c.classList.remove("active"));
-
-  //     e.currentTarget.classList.add("active");
-  //     const tabId = e.currentTarget.dataset.tab;
-  //     const tabContent = document.getElementById(tabId);
-  //     if (tabContent) tabContent.classList.add("active");
-  //   }
-
-  //   buttons.forEach(btn => {
-  //     btn.addEventListener("click", handleTabClick);
-  //   });
-
-  //   return () => {
-  //     buttons.forEach(btn => {
-  //       btn.removeEventListener("click", handleTabClick);
-  //     });
-  //   };
-  // }, []);
-
-  // React.useEffect(() => {      // blog section slide
-  //   if (window.Swiper && document.querySelector('.blog-slider-active .swiper')) {
-  //     new window.Swiper('.blog-slider-active .swiper', {
-  //       slidesPerView: 2,
-  //       spaceBetween: 30,
-  //       loop: true,
-  //       pagination: {
-  //         el: '.blog-pagination',
-  //         clickable: true,
-  //       },
-  //       // autoplay: {
-  //       //   delay: 4000,
-  //       //   disableOnInteraction: false,
-  //       // },
-  //       breakpoints: {
-  //         1200: { slidesPerView: 2, spaceBetween: 30 },
-  //         992: { slidesPerView: 2, spaceBetween: 20 },
-  //         576: { slidesPerView: 1, spaceBetween: 10 },
-  //         0: { slidesPerView: 1, spaceBetween: 10 },
-  //       },
-  //     });
-  //   }
-  // }, []);
-
-  // React.useEffect(() => {   //blog section social
-
-  //   const shareButtons = document.querySelectorAll('.total-shared');
-  //   const handleShareClick = function (e) {
-  //     e.preventDefault();
-  //     const parent = this.parentElement;
-  //     if (parent) {
-  //       parent.classList.toggle('active');
-  //     }
-  //   };
-  //   shareButtons.forEach(btn => btn.addEventListener('click', handleShareClick));
-
-  //   const blogCards = document.querySelectorAll('.blog-card');
-  //   const handleMouseLeave = function () {
-  //     const shared = this.querySelector('.social-share');
-  //     if (shared) {
-  //       shared.classList.remove('active');
-  //     }
-  //   };
-  //   blogCards.forEach(card => card.addEventListener('mouseleave', handleMouseLeave));
-
-  //   // Cleanup
-  //   return () => {
-  //     shareButtons.forEach(btn => btn.removeEventListener('click', handleShareClick));
-  //     blogCards.forEach(card => card.removeEventListener('mouseleave', handleMouseLeave));
-  //   };
-  // }, []);
-
-  // React.useEffect(() => {        //whatsapp
-  //   function handleWhatsAppScroll() {
-  //     const whatsappBtn = document.querySelector('.whatsapp-float');
-  //     if (!whatsappBtn) return;
-  //     if (window.scrollY > 200) {
-  //       whatsappBtn.classList.add('show');
-  //     } else {
-  //       whatsappBtn.classList.remove('show');
-  //     }
-  //   }
-  //   window.addEventListener('scroll', handleWhatsAppScroll);
-  //   return () => window.removeEventListener('scroll', handleWhatsAppScroll);
-  // }, []);
-
-  // React.useEffect(() => {            // back to top
-  //   const btn = document.getElementById('backToTop');
-  //   if (!btn) return;
-  //   const circle = btn.querySelector('circle');
-  //   if (!circle) return;
-  //   const radius = circle.r.baseVal.value;
-  //   const circumference = 2 * Math.PI * radius;
-  //   circle.style.strokeDasharray = circumference;
-  //   circle.style.strokeDashoffset = circumference;
-
-  //   function setProgress() {
-  //     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  //     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  //     const percent = docHeight ? scrollTop / docHeight : 0;
-  //     circle.style.strokeDashoffset = circumference * (1 - percent);
-  //     if (scrollTop > 200) {
-  //       btn.style.opacity = 1;
-  //       btn.style.pointerEvents = 'auto';
-  //     } else {
-  //       btn.style.opacity = 0;
-  //       btn.style.pointerEvents = 'none';
-  //     }
-  //   }
-
-  //   window.addEventListener('scroll', setProgress);
-  //   btn.addEventListener('click', function () {
-  //     window.scrollTo({ top: 0, behavior: 'smooth' });
-  //   });
-
-  //   // Set initial state
-  //   setProgress();
-
-  //   return () => {
-  //     window.removeEventListener('scroll', setProgress);
-  //     btn.removeEventListener('click', function () {
-  //       window.scrollTo({ top: 0, behavior: 'smooth' });
-  //     });
-  //   };
-  // }, []);
 
 
+   useEffect(() => {   // stat counter animation
+    const counters = document.querySelectorAll(".stat-number");
+    const speed = 400;
+  
+    counters.forEach((counter) => {
+      const value = +counter.getAttribute("data-target");
+      let current = 0;
+  
+      const animate = () => {
+        const increment = value / speed;
+  
+        if (current < value) {
+          current += increment;
+          counter.innerText = Math.ceil(current);
+          requestAnimationFrame(animate);
+        } else {
+          if (value >= 3000) counter.innerText = "3K+";
+          else if (value === 95) counter.innerText = "95%";
+          else counter.innerText = value + "+";
+        }
+      };
+  
+      animate();
+    });
+  }, []);
+
+
+ function StatsSection() {
+
+  const statsData = [
+    { target: 3000, text: "Students Trained" },
+    { target: 100, text: "Scholarships Granted" },
+    { target: 25, text: "Research Grants" },
+    { target: 50, text: "Rural Development Projects" },
+    { target: 20, text: "Global Partner Institutions" },
+  ];
+
+  const [counts, setCounts] = useState(statsData.map(() => 0));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounts((prev) =>
+        prev.map((value, i) => {
+          if (value + 10 >= statsData[i].target) {
+            return statsData[i].target;
+          }
+          return value + 10;
+        })
+      );
+    }, 80);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="stats-section">
+      <div className="container">
+        <div className="stats-grid">
+
+          {statsData.map((item, index) => (
+            <div className="stat-item" key={index}>
+              <h3 className="stat-number">{counts[index]}</h3>
+              <p className="stat-text">
+                {item.text.split(" ").slice(0, -1).join(" ")}
+                <br />
+                {item.text.split(" ").slice(-1)}
+              </p>
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
   useEffect(() => {
@@ -362,106 +171,7 @@ function Aboutus() {
           <div className="row">
             <div className="col-xl-7 col-md-7">
               <section className="about-section">
-                <div className="container">
-                  <h2>Who We Are</h2>
-                  <p className="about-intro">
-                    Annamalai Foundation is an international non-profit organization established to promote
-                    education, research, and social service.
-                  </p>
-
-                  <div className="tab-buttons">
-                    <button className="tab-btn active" data-tab="history">CORE VALUES</button>
-                    <button className="tab-btn" data-tab="mission">MISSION & VISION</button>
-                    <button className="tab-btn" data-tab="vision">ABOUT FOUNDER</button>
-                  </div>
-
-                  <div className="tab-content active" id="history">
-                    <div className="scroll">
-                      <div className="abt-para-container">
-                        <div className="para">
-                          <h4>Integrity : <span>We act with honesty, transparency, and accountability.</span></h4>
-                        </div>
-                        <div className="para">
-                          <h4>Innovation : <span>We believe in the power of creative thinking.</span></h4>
-                        </div>
-                        <div className="para">
-                          <h4>Service : <span>Our purpose is rooted in compassion and humanity.</span></h4>
-                        </div>
-                        <div className="para">
-                          <h4>Collaboration : <span>Together, we achieve greater impact.</span></h4>
-                        </div>
-                        <div className="para">
-                          <h4>Excellence : <span>We strive for the highest standards in every project.</span></h4>
-                        </div>
-                      </div>
-                      <div className="abt-unique-para">
-                        <h4>What Makes Us Unique :</h4>
-                        <ul>
-                          <li>Dual presence in India and the USA, enabling international collaboration.</li>
-                          <li>Focus on both academic excellence and community welfare.</li>
-                          <li>Blend of modern innovation with cultural and ethical values.</li>
-                          <li>Transparent operations with measurable impact.</li>
-                        </ul>
-                      </div>
-                    </div>
-
-
-
-                    <div className="details-btn1 m-t-xs-15 m-t-sm-15">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i
-                            className="fas fa-arrow-right"></i></span>
-                        </span>
-                      </a>
-                    </div>
-
-                  </div>
-
-                  <div className="tab-content" id="mission">
-                    <div className="scroll">
-                      <p>
-                        To empower students, educators, and innovators through access to quality education and research.
-                      </p>
-                      <ul>
-                        <li>To build bridges between Indian and international institutions.</li>
-                        <li>To support technology-driven solutions for social and environmental challenges.</li>
-                        <li>To serve communities through sustainable development programs.</li>
-                      </ul>
-                      <p>To create a world where knowledge, innovation, and compassion work together to uplift humanity.</p>
-
-                    </div>
-                    <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i
-                            className="fas fa-arrow-right"></i></span>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="tab-content" id="vision">
-                    <div className="scroll">
-                      <p>
-                        <span style={{ fontWeight: 600 }}> A Grand Heritage : </span>
-                        Perumal’s paternal grandfather, Mr. N. Arunchalam Chettiar, was a highly respected figure in the region, known for his honesty, traditional wisdom, and service to the community. His grandmother, Mrs. Muniyammal, lived an extraordinary life of 106 years—remaining active and independent till her final days without the need for walking sticks or medical support.</p>
-                      <p><span style={{ fontWeight: 600 }}>The Visionary Father: A Village Scientist : </span>
-                        Perumal’s father, Mr. Annamalai Chettiar (fondly called "Kannu"), was born as the fifth child in his family. He lived a full and purposeful life for 83 years, passing away on June 2, 2023. A man of exceptional ingenuity, he introduced practical solutions to uplift the local villages. From setting up flour mills, rice grinding machines, and battery-powered lighting systems for students, to supporting educational and farming innovations, he was endearingly known by his peers as the “Village Scientist.” His work inspired a generation of rural progress and educational focus.</p>
-                    </div>
-                    <div className="details-btn1">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i
-                            className="fas fa-arrow-right"></i></span>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+             <WhoWeAre />
               </section>
 
             </div>
@@ -576,6 +286,8 @@ function Aboutus() {
         </div>
       </section>
 
+      {/* {StatsSection()} */}
+
       <section className="stats-section">
         <div className="container">
           <div className="stats-grid">
@@ -636,7 +348,11 @@ function Aboutus() {
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <img src="/src/assets/img/icons/icon-1.svg" alt="icon-1" />
                 <span>Why Us</span>
-              </div>Education & Scholarship Program
+              </div>
+              <p>
+              {/* Education & Scholarship Program */}
+
+              </p>
               <div className="common-title text-center d-none d-sm-none d-md-none d-lg-block d-xl-block" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <p>We believe that everyone deserves access to opportunities that empower them to learn, innovate, and grow. By bridging academia, research, and compassion, Annamalai Foundation is redefining how education transforms lives.</p>
               </div>
@@ -659,14 +375,14 @@ function Aboutus() {
                     <p>
                       Access global experts, cutting-edge facilities, and collaborative networks to accelerate your research.
                     </p>
-                    <div className="details-btn">
+                    {/* <div className="details-btn">
                       <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
                         </span>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -684,14 +400,14 @@ function Aboutus() {
                     <p>
                       Partner with us to foster cross-disciplinary projects and expand your research impact globally.
                     </p>
-                    <div className="details-btn">
+                    {/* <div className="details-btn">
                       <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
                         </span>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -709,19 +425,20 @@ function Aboutus() {
                     <p>
                       Transform your ideas into reality with mentorship, resources, and connections to research partners.
                     </p>
-                    <div className="details-btn">
+                    {/* <div className="details-btn">
                       <a className='e-primary-btn has-icon is-hover-white' href='/'>
                         KNOW MORE
                         <span className="icon-wrap">
                           <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
                         </span>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
 
 
         </div>

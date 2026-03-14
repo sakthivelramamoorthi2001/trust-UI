@@ -6465,7 +6465,7 @@ padding-left: 40px !important;
 }
 
 .tab-content {
-  display: none;
+  /* display: none; */
   animation: fadeIn 0.4s ease;
 }
 
