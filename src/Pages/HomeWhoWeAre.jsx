@@ -64,13 +64,13 @@ export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false
                     CORE VALUES
                   </button>
 
-{!missonOff &&                   <button
+                   <button
                     className={`tab-btn ${activeTab === "mission" ? "active" : ""}`}
                     onClick={() => setActiveTab("mission")}
                   >
                     MISSION & VISION
                   </button>
-}
+
                   <button
                     className={`tab-btn ${activeTab === "vision" ? "active" : ""}`}
                     onClick={() => setActiveTab("vision")}
@@ -205,7 +205,7 @@ export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false
                       </p>
                     </div>
 
-                    <div className="details-btn1">
+                  {!dontWantButton &&  <div className="details-btn1">
                       <a
                         className="e-primary-btn has-icon is-hover-white"
                         href="/"
@@ -218,7 +218,7 @@ export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false
                           </span>
                         </span>
                       </a>
-                    </div>
+                    </div>}
                   </div>
                 )}
 
@@ -257,7 +257,7 @@ export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false
                       </p>
                     </div>
 
-                    <div className="details-btn1">
+                   {!dontWantButton && <div className="details-btn1">
                       <a
                         className="e-primary-btn has-icon is-hover-white"
                         href="/"
@@ -270,7 +270,7 @@ export default function HomeWhoWeAre({ dontWantButton = false, missonOff = false
                           </span>
                         </span>
                       </a>
-                    </div>
+                    </div>}
                   </div>
                 )}
               </div>

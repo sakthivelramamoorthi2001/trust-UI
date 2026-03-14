@@ -64,17 +64,18 @@ import "swiper/css/navigation";
 import bgImage from "../assets/img/bg/hero-bg-1.webp";
 import heroBg6 from "../assets/img/bg/hero-bg-6.webp";
 import frame96 from "../assets/img/bg/Frame 96.png";
+import ContactModal from "./ContactModal";
 
 // // import icon1 from "../assets/img/icon/icon-1.png";
 // import groupShape1 from "../assets/img/shape/group-shape-1.png";
 // import shape2 from "../assets/img/shape/shape-2.png";
 // import author1 from "../assets/img/author/author-1.png";
 
-
 function Home() {
   const { mediaList } = useAuth();
 
   const [toggler, setToggler] = useState(false);
+  const [contact, setContact] = useState(false);
   const [slide, setSlide] = useState(1);
 
   const whyUsData = [
@@ -146,7 +147,6 @@ function Home() {
       button: "Become One Today",
     },
   ];
-
 
   const galleryImages =
     mediaList.data
@@ -521,71 +521,83 @@ function Home() {
 
   return (
     <div>
+      {contact && (
+        <ContactModal
+          close={() => {
+            setContact(false);
+          }}
+        />
+      )}
       <Header />
 
-
-          <section className="hero-slider-active-1">
-      <Swiper
-        modules={[Autoplay, Pagination, Navigation]}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{ delay: 4000 }}
-        pagination={{ clickable: true,
-          //  disableOnInteraction: false,
-         }}
-        navigation={true}
-      >
-        {slides.map((slide, index) => 
-        {
-
-          console.log(slide,'slid eimage');
+      <section className="hero-slider-active-1">
+        <Swiper
+          modules={[Autoplay, Pagination, Navigation]}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 4000 }}
           
-       return(    <SwiperSlide key={index}>
-            <div
-              className="hero-side"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="hero-content-1">
-                      <div className="subtitle">
-                        <img src={icon1} alt="icon" />
-                        <span>{slide.subtitle}</span>
-                      </div>
+          pagination={{
+            clickable: true,
+            //  disableOnInteraction: false,
+          }}
+          navigation={true}
+        >
+          {slides.map((slide, index) => {
+            console.log(slide, "slid eimage");
 
-                      <div className="title">
-                        <h1>
-                          Empowering Innovation. Advancing{" "}
-                          <span>Education</span>{" "}
-                          <span>Transforming Lives.</span>
-                        </h1>
-                      </div>
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className="hero-side"
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                >
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-xl-12">
+                        <div className="hero-content-1">
+                          <div className="subtitle">
+                            <img src={icon1} alt="icon" />
+                            <span>{slide.subtitle}</span>
+                          </div>
 
-                      <div className="text">
-                        <p>
-                          Annamalai Foundation is a global non-profit
-                          organization working at the intersection of
-                          education, innovation, and community development.
-                          We connect minds across borders students,
-                          educators, and innovators to create lasting
-                          social and scientific impact.
-                        </p>
-                      </div>
+                          <div className="title">
+                            <h1>
+                              Empowering Innovation. Advancing{" "}
+                              <span>Education</span>{" "}
+                              <span>Transforming Lives.</span>
+                            </h1>
+                          </div>
 
-                      <div className="join-us">
-                        <a className="e-primary-btn has-icon" href="/">
-                          {slide.button}
+                          <div className="text">
+                            <p>
+                              Annamalai Foundation is a global non-profit
+                              organization working at the intersection of
+                              education, innovation, and community development.
+                              We connect minds across borders students,
+                              educators, and innovators to create lasting social
+                              and scientific impact.
+                            </p>
+                          </div>
 
-                          <span className="icon-wrap">
-                            <span className="icon">
-                              <i className="fas fa-arrow-right"></i>
-                              <i className="fas fa-arrow-right"></i>
-                            </span>
-                          </span>
-                        </a>
+                          <div className="join-us">
+                            <a
+                              className="e-primary-btn has-icon"
+                              onClick={() => {
+                                setContact(true);
+                              }}
+                            >
+                              {slide.button}
 
-                        {/* {index === 2 && (
+                              <span className="icon-wrap">
+                                <span className="icon">
+                                  <i className="fas fa-arrow-right"></i>
+                                  <i className="fas fa-arrow-right"></i>
+                                </span>
+                              </span>
+                            </a>
+
+                            {/* {index === 2 && (
                           <div className="author-wrap">
                             <img src={author1} alt="authors" />
                             <div className="author-info">
@@ -594,49 +606,49 @@ function Home() {
                             </div>
                           </div>
                         )} */}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+
+                  <div className="group-shape-1">
+                    <img src={groupShape1} alt="shape" />
+                  </div>
+
+                  <div className="s-shape-1">
+                    <img src={shape2} alt="shape" />
+                  </div>
                 </div>
-              </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
 
-              <div className="group-shape-1">
-                <img src={groupShape1} alt="shape" />
-              </div>
+        {/* Social Links */}
 
-              <div className="s-shape-1">
-                <img src={shape2} alt="shape" />
-              </div>
-            </div>
-          </SwiperSlide>)
-       }
-        )}
-      </Swiper>
+        <div className="hero-slider-social" style={{ display: "none" }}>
+          <div className="social-links">
+            <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
+              <i className="fab fa-facebook-f"></i>
+            </a>
 
-      {/* Social Links */}
+            <a href="https://twitter.com">
+              <i className="fab fa-x-twitter"></i>
+            </a>
 
-      <div className="hero-slider-social" style={{ display: "none" }}>
-        <div className="social-links">
-          <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
-            <i className="fab fa-facebook-f"></i>
-          </a>
+            <a href="https://www.instagram.com">
+              <i className="fab fa-instagram"></i>
+            </a>
 
-          <a href="https://twitter.com">
-            <i className="fab fa-x-twitter"></i>
-          </a>
+            <a href="https://www.linkedin.com/in/annamalai-foundation-a3352b334/">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
 
-          <a href="https://www.instagram.com">
-            <i className="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.linkedin.com/in/annamalai-foundation-a3352b334/">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
+          <div className="text">Join Social:</div>
         </div>
-
-        <div className="text">Join Social:</div>
-      </div>
-    </section>
+      </section>
 
       <section className="stats-section">
         <div className="container">
@@ -762,21 +774,20 @@ function Home() {
                         ))}
                       </ul> */}
 
-                    <div className="details-btn1 m-t-xs-15 m-t-sm-15">
-                      <a
-                        className="e-primary-btn has-icon is-hover-white"
-                        href="/program"
-                      >
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon">
-                            <i className="fas fa-arrow-right"></i>
-                            <i className="fas fa-arrow-right"></i>
+                      <div className="details-btn1 m-t-xs-15 m-t-sm-15">
+                        <a
+                          className="e-primary-btn has-icon is-hover-white"
+                          href="/program"
+                        >
+                          KNOW MORE
+                          <span className="icon-wrap">
+                            <span className="icon">
+                              <i className="fas fa-arrow-right"></i>
+                              <i className="fas fa-arrow-right"></i>
+                            </span>
                           </span>
-                        </span>
-                      </a>
-                    </div>
-
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

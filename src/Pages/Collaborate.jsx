@@ -6,6 +6,7 @@ import Header from './Headers';
 import useAuth from '../auth/useAuth';
 import Aos from 'aos';
 import ImageComp from './ImageComp';
+import whtCanDoIcon from "../assets/img/icons/icon-2.svg"
 
 
 function Collaborate() {
@@ -76,7 +77,7 @@ function Collaborate() {
           <div className="row justify-content-center text-center m-b-50 m-b-xs-40">
             <div className="col-xl-12">
               <div className="common-subtitle" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                <img alt="icon-1" src="/src/assets/img/icons/icon-2.svg" /> <span>What We Do</span>
+                <img alt="icon-1" src={whtCanDoIcon} /> <span>What We Do</span>
               </div>
               <div className="common-title m-b-0" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
                 <h2>Join a thriving community of researchers, innovators, and experts committed to advancing knowledge and creating meaningful impact.</h2>

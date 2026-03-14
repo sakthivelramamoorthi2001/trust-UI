@@ -161,7 +161,7 @@ function Aboutus() {
         </div>
       </section>
 
-<HomeWhoWeAre dontWantButton={true} missonOff={true} />
+<HomeWhoWeAre dontWantButton={true}  />
       <section className="about-three" style={{display:"none"}}>
         <div className="about-three__shape-1 d-none d-sm-none d-md-none d-lg-block">
           <img src={aboutShape1} alt="" />

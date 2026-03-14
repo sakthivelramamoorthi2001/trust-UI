@@ -1030,6 +1030,12 @@ label {
 .swiper-navigation-icon {
   display: none;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
 .hero-slider-social {
   position: relative;
   z-index: 2;
