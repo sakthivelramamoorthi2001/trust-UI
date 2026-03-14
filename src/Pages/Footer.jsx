@@ -11,9 +11,9 @@ import { useEffect } from "react";
 
 
 export default function Footer() {
-      useEffect(() => {
-    Aos.init()
-  }, [])
+    useEffect(() => {
+        Aos.init()
+    }, [])
     return <>
         <footer className="footer-section footer-section-2 p-t-125 p-t-md-100 p-t-xs-30 p-b-50">
             <div className="container">
@@ -38,24 +38,24 @@ export default function Footer() {
                                         business.
                                     </p>
                                 </div>
-                                <div className="info">
+                                {/* <div className="info">
                                     <p>
                                         <b>We Are Available !!</b>
                                     </p>
                                     <p>
                                         Mon-Sat: <span>10:00am to 07:30pm</span>
                                     </p>
-                                </div>
+                                </div> */}
                                 <div className="social-links">
                                     <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
                                         <i className="fab fa-facebook-f"></i>
                                     </a>
-                                    <a href="https://twitter.com">
+                                    {/* <a href="https://twitter.com">
                                         <i className="fab fa-x-twitter"></i>
                                     </a>
                                     <a href="https://www.instagram.com">
                                         <i className="fab fa-instagram"></i>
-                                    </a>
+                                    </a> */}
                                     <a href="https://www.linkedin.com/in/annamalai-foundation-a3352b334/">
                                         <i className="fab fa-linkedin-in"></i>
                                     </a>
@@ -81,12 +81,12 @@ export default function Footer() {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-xl-2 col-lg-4 col-md-5">
+                    <div className="col-xl-2 col-lg-4 col-md-5" style={{display:'none'}}>
                         <div className="footer-widget">
                             <h3 className="w-title">
-                                <span>
+                                {/* <span>
                                     <img src="/src/assets/img/icons/icon-1.svg" alt="icon" />
-                                </span>
+                                </span> */}
                                 Our Services
                             </h3>
                             <ul>
@@ -114,9 +114,9 @@ export default function Footer() {
                     <div className="col-xl-3 col-lg-4 col-md-5">
                         <div className="footer-widget">
                             <h3 className="w-title">
-                                <span>
+                                {/* <span>
                                     <img src="/src/assets/img/icons/icon-1.svg" alt="icon" />
-                                </span>
+                                </span> */}
                                 Get in Touch
                             </h3>
                             <div className="get-in-touch">
@@ -144,7 +144,7 @@ export default function Footer() {
                                     </div>
                                     <div className="text">
                                         <h6>Phone</h6>
-                                        <p>908-516-3069</p>
+                                        <p>9841152211</p>
                                     </div>
                                 </a>
                             </div>
@@ -195,7 +195,7 @@ export default function Footer() {
         </div>
 
         <a
-            href="https://wa.me/996294"
+            href="https://wa.me/919841152211"
             className="whatsapp-float"
             target="_blank"
             title="Chat with us on WhatsApp"
