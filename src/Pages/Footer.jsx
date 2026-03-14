@@ -63,7 +63,7 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-2 col-lg-4 col-md-5">
+                  { false && <div className="col-xl-2 col-lg-4 col-md-5">
                         <div className="footer-widget">
                             <h3 className="w-title">
                                 <span>
@@ -80,7 +80,10 @@ export default function Footer() {
                                 <li><Link to="/contactus">Contact Us</Link></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>}
+
+ 
+
                     <div className="col-xl-2 col-lg-4 col-md-5" style={{display:'none'}}>
                         <div className="footer-widget">
                             <h3 className="w-title">
@@ -120,15 +123,7 @@ export default function Footer() {
                                 Get in Touch
                             </h3>
                             <div className="get-in-touch">
-                                <a href="#" className="footer-address">
-                                    <div className="icon">
-                                        <i className="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div className="text">
-                                        <h6>Address</h6>
-                                        <p>4848 Pin Oak Park, Apt 1416, Houston, TX 77081, USA</p>
-                                    </div>
-                                </a>
+                               
                                 <a href="mailto:support@example.com" className="email">
                                     <div className="icon">
                                         <i className="fa-solid fa-paper-plane"></i>
@@ -150,6 +145,41 @@ export default function Footer() {
                             </div>
                         </div>
                     </div>
+                     <div className="col-xl-3 col-lg-4 col-md-5">
+                        <div className="footer-widget">
+                            <h3 className="w-title">
+                                {/* <span>
+                                    <img src="/src/assets/img/icons/icon-1.svg" alt="icon" />
+                                </span> */}
+                                Location
+                            </h3>
+                            <div className="get-in-touch">
+                                <a href="#" className="footer-address">
+                                    <div className="icon">
+                                        <i className="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div className="text">
+                                        <h6>India </h6>
+                                        <p>Annamalai Foundation
+1/29, Vinayagar Koil Street, Vishamangalam,
+Tirupattur District, Tamil Nadu 635652</p>
+                                    </div>
+                                </a>
+
+                                  <a href="#" className="footer-address">
+                                    <div className="icon">
+                                        <i className="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div className="text">
+                                        <h6>USA </h6>
+                                        <p>4848 Pin Oak Park, Apt 1416, Houston, TX 77081, USA</p>
+                                    </div>
+                                </a>
+                             
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div className="footer-bottom">

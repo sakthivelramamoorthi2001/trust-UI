@@ -62,12 +62,56 @@ function Home() {
   const [toggler, setToggler] = useState(false);
   const [slide, setSlide] = useState(1);
 
+  const whyUsData = [
+    {
+      title: "Education & Scholarship Program",
+      desc: "We provide educational support and scholarships for underprivileged students to pursue higher studies, skill training, and global exposure.",
+      img: frame106,
+      includes: [
+        "Merit-based scholarships",
+        "Rural school development",
+        "Career guidance workshops",
+        "International student exchange",
+      ],
+    },
+    {
+      title: "Research & Innovation Program",
+      desc: "We identify and support innovators working in emerging fields like AI, IoT, Robotics, and Clean Energy.",
+      img: frame107,
+      includes: [
+        "Seed funding for student projects",
+        "Mentorship by global experts",
+        "International research partnerships",
+        "Publication and patent support",
+      ],
+    },
+    {
+      title: "International Collaboration Program",
+      desc: "We believe knowledge should travel across borders. Our collaboration initiatives bring Indian students and global institutions together for mutual learning.",
+      img: frame108,
+      includes: [
+        "Student and faculty exchange",
+        "Joint research and workshops",
+        "Education policy dialogues",
+        "Global research conferences",
+      ],
+    },
+    {
+      title: "Community Development Program",
+      desc: "We work to uplift communities through social, cultural, and environmental initiatives.",
+      img: frame106,
+      includes: [
+        "Rural education and digital literacy",
+        "Women entrepreneurship training",
+        "Health and nutrition camps",
+        "Temple heritage and environmental projects",
+      ],
+    },
+  ];
   const galleryImages =
     mediaList.data
       ?.filter((i) => i.PostType === "GALLERY")
-      .map((item) =>
-        item.url
-     ) || [];
+      .map((item) => item.url) || [];
 
   // Sticky header with transition effect
   React.useEffect(() => {
@@ -304,28 +348,27 @@ function Home() {
     });
   }, []);
 
-  React.useEffect(() => {
-    // circle count
-    const counters = document.querySelectorAll(".count-text");
+  // React.useEffect(() => {
+  //   // circle count
+  //   const counters = document.querySelectorAll(".count-text");
 
-    counters.forEach((counter) => {
-      const updateCount = () => {
-        const target = +counter.getAttribute("data-stop");
-        const speed = +counter.getAttribute("data-speed");
-        const current = +counter.innerText;
-        const increment = target / (speed / 50);
+  //   counters.forEach((counter) => {
+  //     const updateCount = () => {
+  //       const target = +counter.getAttribute("data-stop");
+  //       const speed = +counter.getAttribute("data-speed");
+  //       const current = +counter.innerText;
+  //       const increment = target / (speed / 50);
 
-        if (current < target) {
-          counter.innerText = Math.ceil(current + increment);
-          setTimeout(updateCount, 50);
-        } else {
-          counter.innerText = target;
-        }
-      };
-      updateCount();
-    });
-  }, []);
-  
+  //       if (current < target) {
+  //         counter.innerText = Math.ceil(current + increment);
+  //         setTimeout(updateCount, 50);
+  //       } else {
+  //         counter.innerText = target;
+  //       }
+  //     };
+  //     updateCount();
+  //   });
+  // }, []);
 
   React.useEffect(() => {
     //abt-us tab section
@@ -490,12 +533,12 @@ function Home() {
                         </div>
 
                         <div
-                         style={{display:'none'}}
+                          style={{ display: "block" }}
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/">
+                          <a className="e-primary-btn has-icon" href="/aboutus">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -579,12 +622,12 @@ function Home() {
                         </div>
 
                         <div
-                        style={{display:'none'}}
+                          style={{ display: "block" }}
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/">
+                          <a className="e-primary-btn has-icon" href="/aboutus">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -594,13 +637,13 @@ function Home() {
                             </span>
                           </a>
 
-                          <div className="author-wrap">
+                          {/* <div className="author-wrap">
                             <img src={author1} alt="authors" />
                             <div className="author-info">
                               <h5>122.6k+</h5>
                               <p>Earth Helpers</p>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -668,9 +711,9 @@ function Home() {
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
-                          style={{display:"none"}}
+                          style={{ display: "block" }}
                         >
-                          <a className="e-primary-btn has-icon" href="/">
+                          <a className="e-primary-btn has-icon" href="/aboutus">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -752,9 +795,9 @@ function Home() {
                           className="join-us"
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
-                          style={{display:"none"}}
+                          style={{ display: "block" }}
                         >
-                          <a className="e-primary-btn has-icon" href="/">
+                          <a className="e-primary-btn has-icon" href="/aboutus">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -764,13 +807,13 @@ function Home() {
                             </span>
                           </a>
 
-                          <div className="author-wrap">
+                          {/* <div className="author-wrap">
                             <img src={author1} alt="authors" />
                             <div className="author-info">
-                              <h5>122.6k+</h5>
+                              <h5>sds.6k+</h5>
                               <p>Earth Helpers</p>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -916,84 +959,44 @@ function Home() {
             data-aos-duration="1000"
             data-aos-delay="800"
           >
-            <div className="col-xl-4 col-md-6 col-sm-12">
-              <div className="project-card text-center">
-                <div className="thumb">
-                  <a href='/aboutus'>
+            {whyUsData.slice(0, 3).map((item, index) => (
+              <div className="col-xl-4 col-md-6 col-sm-12" key={index}>
+                <div className="project-card text-center">
+                  <div className="thumb">
                     <div className="image-container">
-                      <img src={frame106} alt="thumb-14" />
+                      <img src={item.img} alt={item.title} />
                     </div>
-                  </a>
-                  <div className="content">
-                    <h5>Innovation & Research</h5>
-                    <p>
-                      Access global experts, cutting-edge facilities, and
-                      collaborative networks to accelerate your research.
-                    </p>
-                    {/* <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
+
+                    <div className="content">
+                      <h5>{item.title}</h5>
+                      <p>{item.desc}</p>
+
+                      {/* <ul className="program-list">
+                        {item.includes.map((point, i) => (
+                          <li key={i}>• {point}</li>
+                        ))}
+                      </ul> */}
+
+                    <div className="details-btn1 m-t-xs-15 m-t-sm-15">
+                      <a
+                        className="e-primary-btn has-icon is-hover-white"
+                        href="/program"
+                      >
                         KNOW MORE
                         <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
+                          <span className="icon">
+                            <i className="fas fa-arrow-right"></i>
+                            <i className="fas fa-arrow-right"></i>
+                          </span>
                         </span>
                       </a>
-                    </div> */}
+                    </div>
+
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-sm-12">
-              <div className="project-card text-center">
-                <div className="thumb">
-                  <a href='/aboutus'>
-                    <div className="image-container">
-                      <img src={frame107} alt="thumb-15" />
-                    </div>
-                  </a>
-                  <div className="content">
-                    <h5>Global Partnerships</h5>
-                    <p>
-                      Partner with us to foster cross-disciplinary projects and
-                      expand your research impact globally.
-                    </p>
-                    {/* <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
-                        </span>
-                      </a>
-                    </div> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-md-6 col-sm-12">
-              <div className="project-card text-center">
-                <div className="thumb">
-                  <a href='/aboutus'>
-                    <div className="image-container">
-                      <img src={frame108} alt="thumb-16" />
-                    </div>
-                  </a>
-                  <div className="content">
-                    <h5>Community Development</h5>
-                    <p>
-                      Transform your ideas into reality with mentorship,
-                      resources, and connections to research partners.
-                    </p>
-                    {/* <div className="details-btn">
-                      <a className='e-primary-btn has-icon is-hover-white' href='/'>
-                        KNOW MORE
-                        <span className="icon-wrap">
-                          <span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span>
-                        </span>
-                      </a>
-                    </div> */}
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         {/* <!-- <div className="shape-10">
@@ -1004,7 +1007,8 @@ function Home() {
 	</div> --> */}
       </section>
 
-      <section className="about-three">
+      <HomeWhoWeAre />
+      <section className="about-three" style={{ display: "none" }}>
         <div className="about-three__shape-1 d-none d-sm-none d-md-none d-lg-block">
           <img src={aboutShape1} alt="" />
         </div>
@@ -1207,10 +1211,8 @@ function Home() {
                   </div>
                 </div> */}
 
-              <HomeWhoWeAre />
-
-              </section> 
-
+                <HomeWhoWeAre />
+              </section>
             </div>
             <div
               className="col-xl-5 col-md-5 wow fadeInRight"
@@ -2188,8 +2190,7 @@ function Home() {
                   className="e-primary-btn has-icon is-hover-white"
                   href="/mediatalks"
                 >
-                                    VIEW MORE
-
+                  VIEW MORE
                   <span className="icon-wrap">
                     <span className="icon">
                       <i className="fas fa-arrow-right"></i>
@@ -2259,13 +2260,13 @@ function Home() {
                         : "/src/assets/img/event-1.jpg");
 
                     return (
-                      <div className="gallery-item" 
+                      <div
+                        className="gallery-item"
                         key={item.id || idx}
-          onClick={() => {
-            setSlide(idx + 1);
-            setToggler(!toggler);
-          }}
-                      
+                        onClick={() => {
+                          setSlide(idx + 1);
+                          setToggler(!toggler);
+                        }}
                       >
                         <img src={src} alt="" />
                       </div>
@@ -2279,10 +2280,7 @@ function Home() {
         )}
 
         <div className="details-btn1">
-          <a
-            className="e-primary-btn has-icon is-hover-white"
-            href="/gallery"
-          >
+          <a className="e-primary-btn has-icon is-hover-white" href="/gallery">
             VIEW ALL
             <span className="icon-wrap">
               <span className="icon">
@@ -2305,12 +2303,8 @@ function Home() {
       </section>
 
       {galleryImages.length > 0 && (
-  <FsLightbox
-    toggler={toggler}
-    sources={galleryImages}
-    slide={slide}
-  />
-)}
+        <FsLightbox toggler={toggler} sources={galleryImages} slide={slide} />
+      )}
 
       <section className="latest-blog-section p-t-80 p-t-xs-80 p-b-80 p-b-xs-20 p-b-md-20 p-b-lg-20 p-b-xl-20">
         <div className="container">
@@ -2387,8 +2381,18 @@ function Home() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
-                              <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
+                            <a
+                              className="e-primary-btn has-icon has-small"
+                              href="/blog"
+                            >
+                              READ
+                              <span className="icon-wrap">
+                                <span className="icon">
+                                  <i className="fas fa-arrow-right"></i>
+                                  <i className="fas fa-arrow-right"></i>
+                                </span>
+                              </span>
+                            </a>
                             <div className="social-share">
                               <button className="total-shared">
                                 <i className="fa-solid fa-share-nodes"></i>
@@ -2444,8 +2448,18 @@ function Home() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
-                              <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
+                            <a
+                              className="e-primary-btn has-icon has-small"
+                              href="/blog"
+                            >
+                              READ
+                              <span className="icon-wrap">
+                                <span className="icon">
+                                  <i className="fas fa-arrow-right"></i>
+                                  <i className="fas fa-arrow-right"></i>
+                                </span>
+                              </span>
+                            </a>
                             <div className="social-share">
                               <button className="total-shared">
                                 <i className="fa-solid fa-share-nodes"></i>

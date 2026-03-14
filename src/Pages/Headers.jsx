@@ -129,6 +129,9 @@ const Header = () => {
                                     <li>
                                         <Link to="/aboutus">ABOUT US</Link>
                                     </li>
+                                      <li>
+                                        <Link to="/program">PROGRAMES</Link>
+                                    </li>
                                     <li>
                                         <Link to="/collaborate">COLLABORATE</Link>
                                     </li>

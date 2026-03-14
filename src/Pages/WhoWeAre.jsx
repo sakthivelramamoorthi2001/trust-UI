@@ -2,6 +2,7 @@
 import AOS from 'aos'
 export default function WhoWeAre() {
 
+
     useEffect(() => {
         AOS.init()
     },[])

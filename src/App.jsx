@@ -30,7 +30,7 @@ const GalleryAdmin = lazy(() => import("./Pages/GalleryAdmin"));
 const BlogAdmin = lazy(() => import("./Pages/BlogAdmin"));
 const Test = lazy(() => import("./Pages/Test"));
 const Preview = lazy(() => import("./Pages/Preview"));
-
+const Programer = lazy(() => import("./Pages/Programer"))
 // import Aboutus from "./Pages/Aboutus";
 
 export default function App() {
@@ -56,6 +56,16 @@ export default function App() {
               </PublicRoute>
             }
           />
+
+           <Route
+            path="/program"
+            element={
+              <PublicRoute>
+                <Programer />
+              </PublicRoute>
+            }
+          />
+
           <Route
             path="aboutus"
             element={

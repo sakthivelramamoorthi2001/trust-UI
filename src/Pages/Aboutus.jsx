@@ -32,6 +32,7 @@ import Header from './Headers';
 import Footer from './Footer';
 import WhoWeAre from './WhoWeAre';
   import { useState } from "react";
+import HomeWhoWeAre from './HomeWhoWeAre';
 
 function Aboutus() {
 
@@ -160,7 +161,8 @@ function Aboutus() {
         </div>
       </section>
 
-      <section className="about-three">
+<HomeWhoWeAre dontWantButton={true} />
+      <section className="about-three" style={{display:"none"}}>
         <div className="about-three__shape-1 d-none d-sm-none d-md-none d-lg-block">
           <img src={aboutShape1} alt="" />
         </div>
@@ -344,7 +346,7 @@ function Aboutus() {
       <section className="what-we-do-section p-t-60 p-b-md-100 p-t-xs-80 p-b-xs-80">
         <div className="container why-us-section">
           <div className="section-top-2">
-            <div className="left text-center">
+          {false &&  <div className="left text-center">
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <img src={icon1} alt="icon-1" />
                 <span>Why Us</span>
@@ -359,7 +361,7 @@ function Aboutus() {
               <div className="common-title text-center d-block d-sm-block d-md-block d-lg-none d-xl-none" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <p>We believe that everyone deserves access to opportunities that empower them to learn...</p>
               </div>
-            </div>
+            </div>}
           </div>
           <div className="row row-gap-md-5 row-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
             <div className="col-xl-4 col-md-6 col-sm-12">

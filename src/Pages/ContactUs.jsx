@@ -175,11 +175,27 @@ function ContactUs() {
             <div className="col-xl-4">
               <div className="contact-card">
                 <div className="service-top">
-                  <h4>Our Location</h4>
+                  <h4>USA</h4>
                   <i className="fa fa-location-dot"></i>
                 </div>
                 <div className="service-content">
-                  <p>4848 Pin Oak Park, Apt 1416, Houston, TX 77081, USA</p>
+                <p>4848 Pin Oak Park, Apt 1416, Houston, TX 77081, USA</p>
+                </div>
+                <div className="i-shape">
+                  <i className="fa fa-location-dot"></i>
+                </div>
+              </div>
+            </div>
+                 <div className="col-xl-4">
+              <div className="contact-card">
+                <div className="service-top">
+                  <h4>India </h4>
+                  <i className="fa fa-location-dot"></i>
+                </div>
+                <div className="service-content">
+                 <p>Annamalai Foundation
+1/29, Vinayagar Koil Street, Vishamangalam,
+Tirupattur District, Tamil Nadu 635652</p>  
                 </div>
                 <div className="i-shape">
                   <i className="fa fa-location-dot"></i>
@@ -190,18 +206,22 @@ function ContactUs() {
               <div className="contact-card">
                 <div className="service-top">
                   <h4>Phone
-                    Numbers</h4>
+                    / Email</h4>
                   <i className="fa fa-phone-volume"></i>
                 </div>
                 <div className="service-content">
-                  <p />+91 9841152211
+                  <p>
+                    +91 9841152211
+                  </p>
+                  <p>info@annamalaitrust.com</p>
+
                 </div>
                 <div className="i-shape">
                   <i className="fa fa-phone-volume"></i>
                 </div>
               </div>
             </div>
-            <div className="col-xl-4">
+            {/* <div className="col-xl-4">
               <div className="contact-card">
                 <div className="service-top">
                   <h4>Email
@@ -215,7 +235,7 @@ function ContactUs() {
                   <i className="fa fa-envelope"></i>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
