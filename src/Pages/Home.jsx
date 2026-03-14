@@ -54,6 +54,7 @@ import shape38 from "../assets/img/shapes/shape-38.webp";
 import Header from "./Headers";
 import Footer from "./Footer";
 import FsLightbox from "fslightbox-react";
+import HomeWhoWeAre from "./HomeWhoWeAre";
 
 function Home() {
   const { mediaList } = useAuth();
@@ -324,6 +325,7 @@ function Home() {
       updateCount();
     });
   }, []);
+  
 
   React.useEffect(() => {
     //abt-us tab section
@@ -1013,7 +1015,7 @@ function Home() {
           <div className="row">
             <div className="col-xl-7 col-md-7">
               <section className="about-section">
-                <div className="container">
+                {/* <div className="container">
                   <h2>Who We Are</h2>
                   <p className="about-intro">
                     Annamalai Foundation is an international non-profit
@@ -1203,8 +1205,12 @@ function Home() {
                       </a>
                     </div>
                   </div>
-                </div>
-              </section>
+                </div> */}
+
+              <HomeWhoWeAre />
+
+              </section> 
+
             </div>
             <div
               className="col-xl-5 col-md-5 wow fadeInRight"

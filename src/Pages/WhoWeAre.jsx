@@ -11,7 +11,7 @@ export default function WhoWeAre() {
   
   return (
     <div className="container">
-      <h2>ho We Are</h2>
+      <h2>Who We Are</h2>
 
       <p className="about-intro">
         Annamalai Foundation is an international non-profit organization
