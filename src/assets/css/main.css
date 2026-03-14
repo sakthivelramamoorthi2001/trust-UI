@@ -45,6 +45,8 @@ Version: 1.0
 ************ TABLE OF CONTENTS ***************/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
+
+
 :root {
   --theme-color: #85BF18;
   --theme-shade-color: #99EF68;
@@ -1025,7 +1027,9 @@ label {
   position: relative;
   z-index: 2;
 }
-
+.swiper-navigation-icon {
+  display: none;
+}
 .hero-slider-social {
   position: relative;
   z-index: 2;
@@ -8902,3 +8906,11 @@ padding-left: 40px !important;
   width: 100%;
   padding: 8px;
 }
+
+/* .hero-side{
+height:100vh;
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+} */

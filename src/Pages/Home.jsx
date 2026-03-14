@@ -48,13 +48,28 @@ import gallery7 from "../assets/img/gallery/img-7.jpg";
 import gallery8 from "../assets/img/gallery/img-8.jpg";
 import footerLogo from "../assets/img/thumbs/Annamalai_logo.jpg";
 import icon12 from "../assets/img/icons/icon-12.svg";
-import bgImage from "../assets/img/bg/Frame 96.png";
 
 import shape38 from "../assets/img/shapes/shape-38.webp";
 import Header from "./Headers";
 import Footer from "./Footer";
 import FsLightbox from "fslightbox-react";
 import HomeWhoWeAre from "./HomeWhoWeAre";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import bgImage from "../assets/img/bg/hero-bg-1.webp";
+import heroBg6 from "../assets/img/bg/hero-bg-6.webp";
+import frame96 from "../assets/img/bg/Frame 96.png";
+
+// // import icon1 from "../assets/img/icon/icon-1.png";
+// import groupShape1 from "../assets/img/shape/group-shape-1.png";
+// import shape2 from "../assets/img/shape/shape-2.png";
+// import author1 from "../assets/img/author/author-1.png";
+
 
 function Home() {
   const { mediaList } = useAuth();
@@ -108,6 +123,31 @@ function Home() {
       ],
     },
   ];
+
+  const slides = [
+    {
+      image: bgImage,
+      subtitle: "Let's Go Save Environment",
+      button: "Join Us Today",
+    },
+    {
+      image: bgImage,
+      subtitle: "Let’s Act for Nature’s Future",
+      button: "Become One Today",
+    },
+    {
+      image: bgImage,
+      subtitle: "Let's Go Save Environment",
+      button: "Join Us Today",
+    },
+    {
+      image: bgImage,
+      subtitle: "Let’s Act for Nature’s Future",
+      button: "Become One Today",
+    },
+  ];
+
+
   const galleryImages =
     mediaList.data
       ?.filter((i) => i.PostType === "GALLERY")
@@ -193,136 +233,136 @@ function Home() {
     };
   }, []);
 
-  React.useEffect(() => {
-    // hero slider
-    const $ = window.jQuery;
-    const Swiper = window.Swiper;
-    if (!$ || !Swiper) return;
+  // React.useEffect(() => {
+  //   // hero slider
+  //   const $ = window.jQuery;
+  //   const Swiper = window.Swiper;
+  //   if (!$ || !Swiper) return;
 
-    function animateSwiperElements(selector, init) {
-      let animated = function () {
-        $(selector + " [data-animation]").each(function () {
-          let anim = $(this).data("animation");
-          let delay = $(this).data("delay");
-          let duration = $(this).data("duration");
+  //   function animateSwiperElements(selector, init) {
+  //     let animated = function () {
+  //       $(selector + " [data-animation]").each(function () {
+  //         let anim = $(this).data("animation");
+  //         let delay = $(this).data("delay");
+  //         let duration = $(this).data("duration");
 
-          $(this)
-            .removeClass("anim" + anim)
-            .addClass(anim + " animate__animated")
-            .css({
-              webkitAnimationDelay: delay,
-              animationDelay: delay,
-              webkitAnimationDuration: duration,
-              animationDuration: duration,
-            })
-            .one(
-              "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
-              function () {
-                $(this).removeClass(anim + " animate__animated");
-              },
-            );
-        });
-      };
+  //         $(this)
+  //           .removeClass("anim" + anim)
+  //           .addClass(anim + " animate__animated")
+  //           .css({
+  //             webkitAnimationDelay: delay,
+  //             animationDelay: delay,
+  //             webkitAnimationDuration: duration,
+  //             animationDuration: duration,
+  //           })
+  //           .one(
+  //             "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
+  //             function () {
+  //               $(this).removeClass(anim + " animate__animated");
+  //             },
+  //           );
+  //       });
+  //     };
 
-      // Initial animation
-      animated();
+  //     // Initial animation
+  //     animated();
 
-      // Remove animation classes on slide change start
-      init.on("slideChange", function () {
-        $(selector + " [data-animation]").removeClass("animate__animated");
-      });
+  //     // Remove animation classes on slide change start
+  //     init.on("slideChange", function () {
+  //       $(selector + " [data-animation]").removeClass("animate__animated");
+  //     });
 
-      // Animate on slide change complete
-      init.on("slideChange", animated);
-    }
+  //     // Animate on slide change complete
+  //     init.on("slideChange", animated);
+  //   }
 
-    if ($(".hero-slider-active-1").length > 0) {
-      let sliderActive1 = ".hero-slider-active-1 .swiper";
-      let sliderInit1 = new Swiper(sliderActive1, {
-        slidesPerView: 1,
-        slidesPerColumn: 1,
-        paginationClickable: true,
-        loop: true,
-        effect: "fade",
-        fadeEffect: { crossFade: true },
-        autoplay: {
-          delay: 5000,
-          waitForTransition: true,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".hero-slider-pagination-1",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".hero-slider-button-next-1",
-          prevEl: ".hero-slider-button-prev-1",
-        },
-        a11y: false,
-      });
+  //   if ($(".hero-slider-active-1").length > 0) {
+  //     let sliderActive1 = ".hero-slider-active-1 .swiper";
+  //     let sliderInit1 = new Swiper(sliderActive1, {
+  //       slidesPerView: 1,
+  //       slidesPerColumn: 1,
+  //       paginationClickable: true,
+  //       loop: true,
+  //       effect: "fade",
+  //       fadeEffect: { crossFade: true },
+  //       autoplay: {
+  //         delay: 5000,
+  //         waitForTransition: true,
+  //         disableOnInteraction: false,
+  //       },
+  //       pagination: {
+  //         el: ".hero-slider-pagination-1",
+  //         clickable: true,
+  //       },
+  //       navigation: {
+  //         nextEl: ".hero-slider-button-next-1",
+  //         prevEl: ".hero-slider-button-prev-1",
+  //       },
+  //       a11y: false,
+  //     });
 
-      animateSwiperElements(sliderActive1, sliderInit1);
-    }
+  //     animateSwiperElements(sliderActive1, sliderInit1);
+  //   }
 
-    if ($(".hero-slider-active-2").length > 0) {
-      let sliderActive2 = ".hero-slider-active-2 .swiper";
-      let sliderInit2 = new Swiper(sliderActive2, {
-        slidesPerView: 1,
-        slidesPerColumn: 1,
-        paginationClickable: true,
-        loop: true,
-        effect: "fade",
-        fadeEffect: { crossFade: true },
-        autoplay: {
-          delay: 5000,
-          waitForTransition: true,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".hero-slider-pagination-2",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".hero-slider-button-next-2",
-          prevEl: ".hero-slider-button-prev-2",
-        },
-        a11y: false,
-      });
+  //   if ($(".hero-slider-active-2").length > 0) {
+  //     let sliderActive2 = ".hero-slider-active-2 .swiper";
+  //     let sliderInit2 = new Swiper(sliderActive2, {
+  //       slidesPerView: 1,
+  //       slidesPerColumn: 1,
+  //       paginationClickable: true,
+  //       loop: true,
+  //       effect: "fade",
+  //       fadeEffect: { crossFade: true },
+  //       autoplay: {
+  //         delay: 5000,
+  //         waitForTransition: true,
+  //         disableOnInteraction: false,
+  //       },
+  //       pagination: {
+  //         el: ".hero-slider-pagination-2",
+  //         clickable: true,
+  //       },
+  //       navigation: {
+  //         nextEl: ".hero-slider-button-next-2",
+  //         prevEl: ".hero-slider-button-prev-2",
+  //       },
+  //       a11y: false,
+  //     });
 
-      animateSwiperElements(sliderActive2, sliderInit2);
-    }
+  //     animateSwiperElements(sliderActive2, sliderInit2);
+  //   }
 
-    if ($(".hero-slider-active-3").length > 0) {
-      let sliderActive3 = ".hero-slider-active-3 .swiper";
-      let sliderInit3 = new Swiper(sliderActive3, {
-        slidesPerView: 1,
-        slidesPerColumn: 1,
-        paginationClickable: true,
-        loop: true,
-        effect: "fade",
-        fadeEffect: { crossFade: true },
-        autoplay: {
-          delay: 5000,
-          waitForTransition: true,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".hero-slider-pagination-3",
-          clickable: true,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
-        },
-        navigation: {
-          nextEl: ".hero-slider-button-next-3",
-          prevEl: ".hero-slider-button-prev-3",
-        },
-        a11y: false,
-      });
+  //   if ($(".hero-slider-active-3").length > 0) {
+  //     let sliderActive3 = ".hero-slider-active-3 .swiper";
+  //     let sliderInit3 = new Swiper(sliderActive3, {
+  //       slidesPerView: 1,
+  //       slidesPerColumn: 1,
+  //       paginationClickable: true,
+  //       loop: true,
+  //       effect: "fade",
+  //       fadeEffect: { crossFade: true },
+  //       autoplay: {
+  //         delay: 5000,
+  //         waitForTransition: true,
+  //         disableOnInteraction: false,
+  //       },
+  //       pagination: {
+  //         el: ".hero-slider-pagination-3",
+  //         clickable: true,
+  //         renderBullet: function (index, className) {
+  //           return '<span class="' + className + '">' + (index + 1) + "</span>";
+  //         },
+  //       },
+  //       navigation: {
+  //         nextEl: ".hero-slider-button-next-3",
+  //         prevEl: ".hero-slider-button-prev-3",
+  //       },
+  //       a11y: false,
+  //     });
 
-      animateSwiperElements(sliderActive3, sliderInit3);
-    }
-  }, []);
+  //     animateSwiperElements(sliderActive3, sliderInit3);
+  //   }
+  // }, []);
 
   React.useEffect(() => {
     //stat counter animation
@@ -483,246 +523,69 @@ function Home() {
     <div>
       <Header />
 
-      <section className="hero-slider-active-1">
-        <div className="swiper">
-          <div className="swiper-wrapper">
-            {/* Slide 1 */}
-            <div className="swiper-slide">
-              <div
-                className="hero-side"
-                style={{ backgroundImage: `url(${bgImage})` }}
-              >
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <div className="hero-content-1">
-                        <div
-                          className="subtitle"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.3s"
-                        >
-                          <img src={icon1} alt="icon-1" />
-                          <span>Let's Go Save Environment</span>
-                        </div>
 
-                        <div
-                          className="title"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.4s"
-                        >
-                          <h1>
-                            Empowering Innovation. Advancing{" "}
-                            <span>Education</span>{" "}
-                            <span>Transforming Lives.</span>
-                          </h1>
-                        </div>
+          <section className="hero-slider-active-1">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{ delay: 4000 }}
+        pagination={{ clickable: true,
+          //  disableOnInteraction: false,
+         }}
+        navigation={true}
+      >
+        {slides.map((slide, index) => 
+        {
 
-                        <div
-                          className="text"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.5s"
-                        >
-                          <p>
-                            Annamalai Foundation is a global non-profit
-                            organization working at the intersection of
-                            education, innovation, and community development. We
-                            connect minds across borders students, educators,
-                            and innovators to create lasting social and
-                            scientific impact.
-                          </p>
-                        </div>
-
-                        <div
-                          style={{ display: "block" }}
-                          className="join-us"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.6s"
-                        >
-                          <a className="e-primary-btn has-icon" href="/">
-                            Join Us Today
-                            <span className="icon-wrap">
-                              <span className="icon">
-                                <i className="fas fa-arrow-right"></i>
-                                <i className="fas fa-arrow-right"></i>
-                              </span>
-                            </span>
-                          </a>
-
-                          {/* <div className="author-wrap">
-                            <img
-                              src={author1}
-                              alt="authors"
-                            />
-                            <div className="author-info">
-                              <h5>122.6k+</h5>
-                              <p>Team Members</p>
-                            </div>
-                          </div> */}
-                        </div>
+          console.log(slide,'slid eimage');
+          
+       return(    <SwiperSlide key={index}>
+            <div
+              className="hero-side"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-xl-12">
+                    <div className="hero-content-1">
+                      <div className="subtitle">
+                        <img src={icon1} alt="icon" />
+                        <span>{slide.subtitle}</span>
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="group-shape-1">
-                  <img src={groupShape1} alt="group-shape-1" />
-                </div>
-                <div className="s-shape-1">
-                  <img src={shape2} alt="s-shape-1" />
-                </div>
-              </div>
-            </div>
-
-            {/* Slide 2 */}
-            <div className="swiper-slide">
-              <div
-                className="hero-side"
-                style={{
-                  backgroundImage: "url('/src/assets/img/bg/hero-bg-6.webp')",
-                }}
-              >
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <div className="hero-content-1">
-                        <div
-                          className="subtitle"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.3s"
-                        >
-                          <img src={icon1} alt="icon-1" />
-                          <span>Let’s Act for Nature’s Future</span>
-                        </div>
-
-                        <div
-                          className="title"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.4s"
-                        >
-                          <h1>
-                            Empowering Innovation. Advancing{" "}
-                            <span>Education</span>{" "}
-                            <span>Transforming Lives.</span>
-                          </h1>
-                        </div>
-
-                        <div
-                          className="text"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.5s"
-                        >
-                          <p>
-                            Annamalai Foundation is a global non-profit
-                            organization working at the intersection of
-                            education, innovation, and community development. We
-                            connect minds across borders students, educators,
-                            and innovators to create lasting social and
-                            scientific impact.
-                          </p>
-                        </div>
-
-                        <div
-                          style={{ display: "block" }}
-                          className="join-us"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.6s"
-                        >
-                          <a className="e-primary-btn has-icon" href="/">
-                            Become One Today
-                            <span className="icon-wrap">
-                              <span className="icon">
-                                <i className="fas fa-arrow-right"></i>
-                                <i className="fas fa-arrow-right"></i>
-                              </span>
-                            </span>
-                          </a>
-
-                          {/* <div className="author-wrap">
-                            <img src={author1} alt="authors" />
-                            <div className="author-info">
-                              <h5>122.6k+</h5>
-                              <p>Earth Helpers</p>
-                            </div>
-                          </div> */}
-                        </div>
+                      <div className="title">
+                        <h1>
+                          Empowering Innovation. Advancing{" "}
+                          <span>Education</span>{" "}
+                          <span>Transforming Lives.</span>
+                        </h1>
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="group-shape-1">
-                  <img src={groupShape1} alt="group-shape-1" />
-                </div>
-                <div className="s-shape-1">
-                  <img src={shape2} alt="s-shape-1" />
-                </div>
-              </div>
-            </div>
+                      <div className="text">
+                        <p>
+                          Annamalai Foundation is a global non-profit
+                          organization working at the intersection of
+                          education, innovation, and community development.
+                          We connect minds across borders students,
+                          educators, and innovators to create lasting
+                          social and scientific impact.
+                        </p>
+                      </div>
 
-            {/* Slide 3 */}
-            <div className="swiper-slide">
-              <div
-                className="hero-side"
-                style={{
-                  backgroundImage: "url('/src/assets/img/bg/Frame 96.png')",
-                }}
-              >
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <div className="hero-content-1">
-                        <div
-                          className="subtitle"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.3s"
-                        >
-                          <img src={icon1} alt="icon-1" />
-                          <span>Let's Go Save Environment</span>
-                        </div>
+                      <div className="join-us">
+                        <a className="e-primary-btn has-icon" href="/">
+                          {slide.button}
 
-                        <div
-                          className="title"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.4s"
-                        >
-                          <h1>
-                            Empowering Innovation. Advancing{" "}
-                            <span>Education</span>{" "}
-                            <span>Transforming Lives.</span>
-                          </h1>
-                        </div>
-
-                        <div
-                          className="text"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.5s"
-                        >
-                          <p>
-                            Annamalai Foundation is a global non-profit
-                            organization working at the intersection of
-                            education, innovation, and community development. We
-                            connect minds across borders students, educators,
-                            and innovators to create lasting social and
-                            scientific impact.
-                          </p>
-                        </div>
-
-                        <div
-                          className="join-us"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.6s"
-                          style={{ display: "block" }}
-                        >
-                          <a className="e-primary-btn has-icon" href="/">
-                            Join Us Today
-                            <span className="icon-wrap">
-                              <span className="icon">
-                                <i className="fas fa-arrow-right"></i>
-                                <i className="fas fa-arrow-right"></i>
-                              </span>
+                          <span className="icon-wrap">
+                            <span className="icon">
+                              <i className="fas fa-arrow-right"></i>
+                              <i className="fas fa-arrow-right"></i>
                             </span>
-                          </a>
+                          </span>
+                        </a>
 
+                        {/* {index === 2 && (
                           <div className="author-wrap">
                             <img src={author1} alt="authors" />
                             <div className="author-info">
@@ -730,128 +593,50 @@ function Home() {
                               <p>Team Members</p>
                             </div>
                           </div>
-                        </div>
+                        )} */}
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="group-shape-1">
-                  <img src={groupShape1} alt="group-shape-1" />
-                </div>
-                <div className="s-shape-1">
-                  <img src={shape2} alt="s-shape-1" />
-                </div>
+              <div className="group-shape-1">
+                <img src={groupShape1} alt="shape" />
+              </div>
+
+              <div className="s-shape-1">
+                <img src={shape2} alt="shape" />
               </div>
             </div>
-            <div className="swiper-slide">
-              <div
-                className="hero-side"
-                style={{
-                  backgroundImage: "url('/src/assets/img/bg/hero-bg-6.webp')",
-                }}
-              >
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xl-12">
-                      <div className="hero-content-1">
-                        <div
-                          className="subtitle"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.3s"
-                        >
-                          <img src={icon1} alt="icon-1" />
-                          <span>Let’s Act for Nature’s Future</span>
-                        </div>
+          </SwiperSlide>)
+       }
+        )}
+      </Swiper>
 
-                        <div
-                          className="title"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.4s"
-                        >
-                          <h1>
-                            Empowering Innovation. Advancing{" "}
-                            <span>Education</span>{" "}
-                            <span>Transforming Lives.</span>
-                          </h1>
-                        </div>
+      {/* Social Links */}
 
-                        <div
-                          className="text"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.5s"
-                        >
-                          <p>
-                            Annamalai Foundation is a global non-profit
-                            organization working at the intersection of
-                            education, innovation, and community development. We
-                            connect minds across borders students, educators,
-                            and innovators to create lasting social and
-                            scientific impact.
-                          </p>
-                        </div>
+      <div className="hero-slider-social" style={{ display: "none" }}>
+        <div className="social-links">
+          <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
+            <i className="fab fa-facebook-f"></i>
+          </a>
 
-                        <div
-                          className="join-us"
-                          data-animation="animate__fadeInUp"
-                          data-delay="0.6s"
-                          style={{ display: "block" }}
-                        >
-                          <a className="e-primary-btn has-icon" href="/">
-                            Become One Today
-                            <span className="icon-wrap">
-                              <span className="icon">
-                                <i className="fas fa-arrow-right"></i>
-                                <i className="fas fa-arrow-right"></i>
-                              </span>
-                            </span>
-                          </a>
+          <a href="https://twitter.com">
+            <i className="fab fa-x-twitter"></i>
+          </a>
 
-                          {/* <div className="author-wrap">
-                            <img src={author1} alt="authors" />
-                            <div className="author-info">
-                              <h5>sds.6k+</h5>
-                              <p>Earth Helpers</p>
-                            </div>
-                          </div> */}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <a href="https://www.instagram.com">
+            <i className="fab fa-instagram"></i>
+          </a>
 
-                <div className="group-shape-1">
-                  <img src={groupShape1} alt="group-shape-1" />
-                </div>
-                <div className="s-shape-1">
-                  <img src={shape2} alt="s-shape-1" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <a href="https://www.linkedin.com/in/annamalai-foundation-a3352b334/">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
         </div>
 
-        {/* <div className="hero-slider-pagination-1"></div> */}
-
-        <div className="hero-slider-social" style={{ display: "none" }}>
-          <div className="social-links">
-            <a href="https://www.facebook.com/people/Annamalai-Foundation/61567348864633/">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com">
-              <i className="fab fa-x-twitter"></i>
-            </a>
-            <a href="https://www.instagram.com">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/annamalai-foundation-a3352b334/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-
-          <div className="text">Join Social:</div>
-        </div>
-      </section>
+        <div className="text">Join Social:</div>
+      </div>
+    </section>
 
       <section className="stats-section">
         <div className="container">
