@@ -538,7 +538,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/aboutus">
+                          <a className="e-primary-btn has-icon" href="/">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -627,7 +627,7 @@ function Home() {
                           data-animation="animate__fadeInUp"
                           data-delay="0.6s"
                         >
-                          <a className="e-primary-btn has-icon" href="/aboutus">
+                          <a className="e-primary-btn has-icon" href="/">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -713,7 +713,7 @@ function Home() {
                           data-delay="0.6s"
                           style={{ display: "block" }}
                         >
-                          <a className="e-primary-btn has-icon" href="/aboutus">
+                          <a className="e-primary-btn has-icon" href="/">
                             Join Us Today
                             <span className="icon-wrap">
                               <span className="icon">
@@ -797,7 +797,7 @@ function Home() {
                           data-delay="0.6s"
                           style={{ display: "block" }}
                         >
-                          <a className="e-primary-btn has-icon" href="/aboutus">
+                          <a className="e-primary-btn has-icon" href="/">
                             Become One Today
                             <span className="icon-wrap">
                               <span className="icon">
