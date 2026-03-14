@@ -194,7 +194,7 @@ function ContactUs() {
                   <i className="fa fa-phone-volume"></i>
                 </div>
                 <div className="service-content">
-                  <p />+1 908-516-3069
+                  <p />+91 9841152211
                 </div>
                 <div className="i-shape">
                   <i className="fa fa-phone-volume"></i>

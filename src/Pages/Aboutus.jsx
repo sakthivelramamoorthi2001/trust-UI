@@ -346,7 +346,7 @@ function Aboutus() {
           <div className="section-top-2">
             <div className="left text-center">
               <div className="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <img src="/src/assets/img/icons/icon-1.svg" alt="icon-1" />
+                <img src={icon1} alt="icon-1" />
                 <span>Why Us</span>
               </div>
               <p>
@@ -628,8 +628,7 @@ function Aboutus() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
-                              MORE
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
                               <button className="total-shared"><i className="fa-solid fa-share-nodes"></i>
@@ -667,8 +666,7 @@ function Aboutus() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
-                              MORE
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
                               <button className="total-shared"><i className="fa-solid fa-share-nodes"></i>
@@ -706,8 +704,7 @@ function Aboutus() {
                             </div>
                           </div>
                           <div className="content-bottom">
-                            <a className='e-primary-btn has-icon has-small' href='/econest/blog-details'>KNOW
-                              MORE
+                            <a className='e-primary-btn has-icon has-small' href='/blog'>READ
                               <span className="icon-wrap"><span className="icon"><i className="fas fa-arrow-right"></i><i className="fas fa-arrow-right"></i></span></span></a>
                             <div className="social-share">
                               <button className="total-shared"><i className="fa-solid fa-share-nodes"></i>
