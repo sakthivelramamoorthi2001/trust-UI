@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams, useLocation } from "react-router-dom";
 import AuthProvider from "./auth/AuthProvider";
 // import MainLayout from "./layouts/MainLayout";
 import RequireAuth from "./routes/RequireRole";
 import PublicRoute from "./routes/PublicRoute";
 
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 
 const Login = lazy(() => import("./Pages/Login"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
@@ -33,9 +33,27 @@ const Preview = lazy(() => import("./Pages/Preview"));
 const Programer = lazy(() => import("./Pages/Programer"))
 // import Aboutus from "./Pages/Aboutus";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth"
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 export default function App() {
+
+
+ 
+ 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <AuthProvider>
         <Routes>
           {/* <Route path="/" element={<MainLayout />}> */}

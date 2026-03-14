@@ -7801,7 +7801,7 @@ textarea.form-control-lg {
 }
 
 .overflow-hidden {
-    overflow: hidden!important
+    /* overflow: hidden!important */
 }
 
 .overflow-visible {
