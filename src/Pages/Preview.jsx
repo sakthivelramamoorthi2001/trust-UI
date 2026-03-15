@@ -117,7 +117,7 @@ const Preview = () => {
 
 
             <div className="post-wrapper">
-                <p style={{ textAlign: "right" }}>
+                <p style={{ textAlign: "left" }}>
                     Created At : {new Date(media.createdAt).toLocaleString("en-IN")}
                 </p>
                 <h3 className="post-heading">

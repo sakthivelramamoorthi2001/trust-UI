@@ -132,20 +132,20 @@ function Home() {
       button: "Join Us Today",
     },
     {
-      image: bgImage,
+      image: heroBg6,
       subtitle: "Let’s Act for Nature’s Future",
       button: "Become One Today",
     },
     {
-      image: bgImage,
+      image: frame96,
       subtitle: "Let's Go Save Environment",
       button: "Join Us Today",
     },
-    {
-      image: bgImage,
-      subtitle: "Let’s Act for Nature’s Future",
-      button: "Become One Today",
-    },
+    // {
+    //   image: bgImage,
+    //   subtitle: "Let’s Act for Nature’s Future",
+    //   button: "Become One Today",
+    // },
   ];
 
   const galleryImages =
